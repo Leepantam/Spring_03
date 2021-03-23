@@ -25,9 +25,12 @@ public class MemberDAOTest extends MyAbstractTest {
 		assertNotEquals(0, result);
 	}
 	
-	@Test
+//	@Test
 	public void memberLoginTest() throws Exception{
-		MemberDTO mDto = memberDAO.memberLogin(null);
+		MemberDTO mDto=new MemberDTO();
+		mDto.setId("user04");
+		mDto.setPw("park");
+		mDto = memberDAO.memberLogin(mDto);
 		
 		assertNotNull(mDto);
 		System.out.println(mDto.getName());
@@ -42,14 +45,15 @@ public class MemberDAOTest extends MyAbstractTest {
 		assertEquals(1, result);
 	}
 	
-//	@Test
+	@Test
 	public void memberUpdate() throws Exception{
 		MemberDTO mDto = new MemberDTO();
 		mDto.setId("user04");
+		mDto.setPw("park");
 		
 		mDto=memberDAO.memberLogin(mDto);
 		mDto.setName("park");
-		mDto.setPw("park");
+		mDto.setPw("user04");
 		
 		int result = memberDAO.memberUpdate(mDto);
 		assertEquals(1, result);

@@ -18,9 +18,7 @@ public class MemberDAO {
 	
 	
 	public MemberDTO memberLogin(MemberDTO mDto) throws Exception {
-		mDto=new MemberDTO();
-		mDto.setId("user01");
-		mDto.setPw("user01");
+		
 		mDto = sqlSession.selectOne(NAMESPACE+".memberLogin", mDto);
 		
 		return mDto;
