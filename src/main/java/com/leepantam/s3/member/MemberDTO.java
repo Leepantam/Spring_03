@@ -1,5 +1,6 @@
 package com.leepantam.s3.member;
 
+
 public class MemberDTO {
 	
 	// 모든 멤버변수는 private
