@@ -6,9 +6,8 @@ import org.junit.Test;
 
 public class MemberDAOTest {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void memberJoinTest() {
+		
 	}
 
 }
