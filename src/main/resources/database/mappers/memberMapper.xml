@@ -11,6 +11,10 @@
  	<insert id="memberJoin" parameterType="com.leepantam.s3.member.MemberDTO">
  		insert into users (id,pw,name,phone,email) values(#{id},#{pw},#{name},#{phone},#{email})
  	</insert>
+ 	
+ 	<delete id="memberDelete" parameterType="com.leepantam.s3.member.MemberDTO">
+ 		delete from users where id=#{id}
+ 	</delete>
  
  
  </mapper>

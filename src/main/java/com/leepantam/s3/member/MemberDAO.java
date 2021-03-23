@@ -27,11 +27,12 @@ public class MemberDAO {
 	}
 	
 	
-//	public int memberDelete(MemberDTO mDto) throws Exception{
-//		int result;
-//		return result;
-//	}
-//	
+	public int memberDelete(MemberDTO mDto) throws Exception{
+		int result = sqlSession.delete(NAMESPACE+".memberDelete",mDto);
+		return result;
+	}
+
+	
 //	public int memberUpdate(MemberDTO mDto) throws Exception{
 //		int result;
 //		return result;
