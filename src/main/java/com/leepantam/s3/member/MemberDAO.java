@@ -17,12 +17,14 @@ public class MemberDAO {
 	}
 	
 	
-//	public MemberDTO memberLogin(MemberDTO mDto) throws Exception {
-//		
-//		mDto = sqlSession.select(NAMESPACE+".memberLogin", mDto);
-//		
-//		return mDto;
-//	}
+	public MemberDTO memberLogin(MemberDTO mDto) throws Exception {
+		mDto=new MemberDTO();
+		mDto.setId("test0323");
+		mDto.setPw("test0323");
+		mDto = sqlSession.selectOne(NAMESPACE+".memberLogin", mDto);
+		
+		return mDto;
+	}
 	
 	
 //	public int memberDelete(MemberDTO mDto) throws Exception{
