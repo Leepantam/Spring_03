@@ -5,6 +5,8 @@ public class BankBookDTO {
 	private String account_name;
 	private double interest_rate;
 	private String can_make;
+	
+	
 	public int getAccount_number() {
 		return account_number;
 	}
