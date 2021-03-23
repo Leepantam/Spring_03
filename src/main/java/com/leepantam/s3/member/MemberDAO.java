@@ -19,8 +19,8 @@ public class MemberDAO {
 	
 	public MemberDTO memberLogin(MemberDTO mDto) throws Exception {
 		mDto=new MemberDTO();
-		mDto.setId("test0323");
-		mDto.setPw("test0323");
+		mDto.setId("user01");
+		mDto.setPw("user01");
 		mDto = sqlSession.selectOne(NAMESPACE+".memberLogin", mDto);
 		
 		return mDto;
@@ -33,9 +33,9 @@ public class MemberDAO {
 	}
 
 	
-//	public int memberUpdate(MemberDTO mDto) throws Exception{
-//		int result;
-//		return result;
-//	}
+	public int memberUpdate(MemberDTO mDto) throws Exception{
+		
+		return sqlSession.update(NAMESPACE+".memberUpdate", mDto);
+	}
 	
 }

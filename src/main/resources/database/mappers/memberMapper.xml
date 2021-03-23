@@ -15,6 +15,10 @@
  	<delete id="memberDelete" parameterType="com.leepantam.s3.member.MemberDTO">
  		delete from users where id=#{id}
  	</delete>
+ 	
+ 	<update id="memberUpdate" parameterType="com.leepantam.s3.member.MemberDTO">
+ 		update users set pw=#{pw}, name=#{name}, phone=#{phone},email=#{email} where id=#{id}
+ 	</update>
  
  
  </mapper>
