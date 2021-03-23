@@ -10,7 +10,7 @@ import com.leepantam.s3.MyAbstractTest;
 public class MemberDAOTest extends MyAbstractTest {
 	
 	@Autowired
-	private MemberDAO memberDAO;
+	private MemberDAO mDAO;
 
 //	@Test
 	public void memberJoinTest() throws Exception {
@@ -20,7 +20,7 @@ public class MemberDAOTest extends MyAbstractTest {
 		mDto.setName("test323");
 		mDto.setPhone("01011112222");
 		mDto.setEmail("test323@test.com");
-		int result = memberDAO.memberJoin(mDto);
+		int result = mDAO.memberJoin(mDto);
 		
 		assertNotEquals(0, result);
 	}
@@ -30,7 +30,7 @@ public class MemberDAOTest extends MyAbstractTest {
 		MemberDTO mDto=new MemberDTO();
 		mDto.setId("user04");
 		mDto.setPw("park");
-		mDto = memberDAO.memberLogin(mDto);
+		mDto = mDAO.memberLogin(mDto);
 		
 		assertNotNull(mDto);
 		System.out.println(mDto.getName());
@@ -41,7 +41,7 @@ public class MemberDAOTest extends MyAbstractTest {
 	public void memberDeleteTest() throws Exception{
 		MemberDTO mDto = new MemberDTO();
 		mDto.setId("7");
-		int result = memberDAO.memberDelete(mDto);
+		int result = mDAO.memberDelete(mDto);
 		assertEquals(1, result);
 	}
 	
@@ -51,11 +51,11 @@ public class MemberDAOTest extends MyAbstractTest {
 		mDto.setId("user04");
 		mDto.setPw("park");
 		
-		mDto=memberDAO.memberLogin(mDto);
+		mDto=mDAO.memberLogin(mDto);
 		mDto.setName("park");
 		mDto.setPw("user04");
 		
-		int result = memberDAO.memberUpdate(mDto);
+		int result = mDAO.memberUpdate(mDto);
 		assertEquals(1, result);
 		
 		
