@@ -29,5 +29,6 @@
 		</c:forEach>
 	</tbody>
 </table>
+<a href="./bankbookWrite">Write</a>
 </body>
 </html>
