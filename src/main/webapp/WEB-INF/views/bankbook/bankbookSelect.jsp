@@ -12,5 +12,7 @@
 <h3>NAME: ${dto.account_name}</h3>
 <h3>NUMBER : ${dto.account_number}</h3>
 
+<a href="./bankbookDelete?account_number=${dto.account_number}">Delete</a>
+
 </body>
 </html>

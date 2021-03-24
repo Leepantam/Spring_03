@@ -19,4 +19,8 @@ public class BankBookService {
 		return bDao.getSelect(bDto);
 	}
 	
+	public void setDelete(BankBookDTO bDto) throws Exception {
+		bDao.setDelete(bDto);
+	}
+	
 }

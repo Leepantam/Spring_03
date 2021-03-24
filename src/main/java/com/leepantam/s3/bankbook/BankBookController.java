@@ -29,4 +29,11 @@ public class BankBookController {
 		mv.setViewName("bankbook/bankbookSelect");
 		return mv;
 	}
+	
+	@RequestMapping(value="bankbookDelete")
+	public String setDelete(BankBookDTO bDto) throws Exception{
+		bServ.setDelete(bDto);
+		
+		return "redirect:bankbookList";
+	}
 }
