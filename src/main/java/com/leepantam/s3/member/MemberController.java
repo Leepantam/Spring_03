@@ -19,8 +19,12 @@ public class MemberController {
 	
 	@RequestMapping(value="memberJoin",method=RequestMethod.POST)
 	public String memberJoin(MemberDTO mDto) throws Exception {
-		mServ.memberJoin(mDto);
-		return "redirect:../";
+		String page="/member/memberJoin";
+		int result=mServ.memberJoin(mDto);
+		if(result!=0) {
+			page="redirect:../";
+		}
+		return page;
 	}
 	
 	
