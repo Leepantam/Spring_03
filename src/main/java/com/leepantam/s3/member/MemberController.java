@@ -38,5 +38,15 @@ public class MemberController {
 		session.setAttribute("member", mDto);
 		return "redirect:../";
 	}
-
+	
+	@RequestMapping(value="memberLogout")
+	public String memberLogout(HttpSession session) throws Exception {
+		session.invalidate();
+		return "redirect:../";
+	}
+	
+	@RequestMapping(value="memberPage")
+	public void memberPage(HttpSession session) throws Exception{
+		
+	}
 }
