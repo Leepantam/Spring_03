@@ -15,8 +15,16 @@ public class AccountDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.leepantam.s3.account.AccountDAO";
 	
-	public List<AccountDTO> getList(MemberDTO mDto) throws Exception {
-		List<AccountDTO> arr = sqlSession.selectList(NAMESPACE+".getList", mDto);
-		return arr;
+//	public List<AccountDTO> getList(MemberDTO mDto) throws Exception {
+//		return sqlSession.selectList(NAMESPACE+".getList", mDto);
+//	}
+	
+	public List<AccountDTO> getList(AccountDTO aDto) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".getList", aDto);
+	}
+	
+	public int setInsert(AccountDTO aDto) throws Exception{
+		return sqlSession.insert(NAMESPACE+".setInsert",aDto);
+		
 	}
 }

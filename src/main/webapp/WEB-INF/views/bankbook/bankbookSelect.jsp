@@ -12,19 +12,24 @@
 
 	<h3>NAME: ${dto.account_name}</h3>
 	<h3>NUMBER : ${dto.account_number}</h3>
+	<c:if test="${not empty member}">
+		<c:if test="${member.id eq 'admin'}">
+			<a href="./bankbookDelete?account_number=${dto.account_number}">Delete</a>
+			<a href="./bankbookUpdate?account_number=${dto.account_number}">Update</a>
+		</c:if>
+		<c:if test="${member.id ne 'admin'}">
+			<a href="../account/accountInsert"> 가입 </a>
+		</c:if>
+	</c:if>
 	<%-- 
-<c:if test="${not empty member and member.id eq 'admin'}">
-<a href="./bankbookDelete?account_number=${dto.account_number}">Delete</a>
-<a href="./bankbookUpdate?account_number=${dto.account_number}">Update</a>
-</c:if>
- --%>
-
 	<c:catch>
 		<c:if test="${member.id eq 'admin'}">
 			<a href="./bankbookDelete?account_number=${dto.account_number}">Delete</a>
 			<a href="./bankbookUpdate?account_number=${dto.account_number}">Update</a>
 		</c:if>
-	</c:catch>
+	</c:catch> 
+	문제 발생 가능성 있음
+	--%>
 
 </body>
 </html>

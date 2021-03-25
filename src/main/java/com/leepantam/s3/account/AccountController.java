@@ -20,8 +20,14 @@ public class AccountController {
 	
 	
 	@RequestMapping(value="accountList")
-	public void getList(HttpSession session, Model model) throws Exception {
-		List<AccountDTO> array = aServ.getList((MemberDTO)session.getAttribute("member"));
+	public void getList(AccountDTO aDto,HttpSession session, Model model) throws Exception {
+		aDto.setUser_info(((MemberDTO)session.getAttribute("member")).getId());
+		List<AccountDTO> array = aServ.getList(aDto);
 		model.addAttribute("list", array);
+	}
+	
+	@RequestMapping(value="accountInsert")
+	public void setInsert() throws Exception{
+		
 	}
 }
