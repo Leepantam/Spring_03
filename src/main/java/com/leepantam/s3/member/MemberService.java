@@ -20,4 +20,8 @@ public class MemberService {
 	public int memberDelete(MemberDTO mDto) throws Exception{
 		return mDao.memberDelete(mDto);
 	}
+	
+	public int memberUpdate(MemberDTO mDto) throws Exception{
+		return mDao.memberUpdate(mDto);
+	}
 }

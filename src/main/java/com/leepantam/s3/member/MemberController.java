@@ -51,9 +51,23 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberDelete")
-	public String memberDelete(MemberDTO mDto, HttpSession session) throws Exception{
-		mServ.memberDelete(mDto);
+	public String memberDelete(HttpSession session) throws Exception{
+		int result = mServ.memberDelete((MemberDTO)session.getAttribute("member"));
+		
 		session.invalidate();
+		
+		return "redirect:../";
+	}
+	
+	@RequestMapping(value="memberUpdate")
+	public void memberUpdate() throws Exception{
+		
+	}
+	
+	@RequestMapping(value="memberUpdate", method=RequestMethod.POST)
+	public String memberUpdate(MemberDTO mDto, HttpSession session) throws Exception{
+		int result = mServ.memberUpdate(mDto);
+		session.setAttribute("member", mDto);
 		
 		return "redirect:../";
 	}
