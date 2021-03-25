@@ -46,7 +46,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberPage")
-	public void memberPage(HttpSession session) throws Exception{
+	public void memberPage() throws Exception{
 		
+	}
+	
+	@RequestMapping(value="memberDelete")
+	public String memberDelete(MemberDTO mDto, HttpSession session) throws Exception{
+		mServ.memberDelete(mDto);
+		session.invalidate();
+		
+		return "redirect:../";
 	}
 }

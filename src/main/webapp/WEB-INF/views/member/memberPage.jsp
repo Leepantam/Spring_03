@@ -13,5 +13,6 @@
 <h3>NAME:${member.name}</h3>
 <h3>PHONE:${member.phone}</h3>
 <h3>EMAIL:${member.email}</h3>
+<a href="./memberDelete?id=${member.id}">탈퇴</a>
 </body>
 </html>

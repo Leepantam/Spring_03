@@ -16,4 +16,8 @@ public class MemberService {
 	public MemberDTO memberLogin(MemberDTO mDto) throws Exception{
 		return mDao.memberLogin(mDto);
 	}
+	
+	public int memberDelete(MemberDTO mDto) throws Exception{
+		return mDao.memberDelete(mDto);
+	}
 }
