@@ -13,11 +13,11 @@
 <body>
 
 <c:import url="../template/header.jsp"></c:import>
- 
-<h1>bankbookList</h1>
+<div class="container">
+<h2>bankbookList</h2>
 
-<table>
-	<thead>
+<table class="table">
+	<thead class="thead-dark">
 		<tr>
 			<th>Name</th>
 			<th>Rate</th>
@@ -36,5 +36,8 @@
 	</tbody>
 </table>
 <a href="./bankbookWrite">Write</a>
+</div>
+
+
 </body>
 </html>
