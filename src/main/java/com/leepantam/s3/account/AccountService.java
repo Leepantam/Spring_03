@@ -14,6 +14,7 @@ public class AccountService {
 	
 	@Autowired
 	private AccountDAO aDao;
+	private int num=100000;
 	
 	public List<AccountDTO> getList(AccountDTO aDto) throws Exception {
 
@@ -21,7 +22,13 @@ public class AccountService {
 	}
 	
 	public int setInsert(AccountDTO aDto)throws Exception{
-		aDto.setAccount();
+		num=++num;
+		StringBuffer sb = new StringBuffer();
+		sb.append("111-");
+		sb.append(num);
+		sb.append("-22-");
+		sb.append("333");
+		aDto.setAccount(sb.toString());
 		return aDao.setInsert(aDto);
 	}
 }

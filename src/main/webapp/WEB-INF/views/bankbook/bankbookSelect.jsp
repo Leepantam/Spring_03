@@ -18,7 +18,7 @@
 			<a href="./bankbookUpdate?account_number=${dto.account_number}">Update</a>
 		</c:if>
 		<c:if test="${member.id ne 'admin'}">
-			<a href="../account/accountInsert"> 가입 </a>
+			<a href="../account/accountInsert?account_number=${dto.account_number}"> 가입 </a>
 		</c:if>
 	</c:if>
 	<%-- 
