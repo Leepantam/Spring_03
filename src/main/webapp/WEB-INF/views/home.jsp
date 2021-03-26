@@ -61,5 +61,62 @@
   <p>Footer</p>
 </div>
 
+
+
+<!-- 
+
+	기능
+		글 리스트 => 누구나 접근 가능
+		상세보기 - 글 리스트에서 제목 클릭 => 누구나 접근 가능
+		글 수정 - 글 상세보기에서 버튼 클릭 => 관리자만 접근 가능(admin)
+		글 삭제 - 글 상세보기에서 버튼 클릭 => 관리자만 접근 가능(admin)
+		글 작성 => 관리자만 접근 가능(admin)
+
+	back-end
+		noticeMapper
+		
+		com.leepantam.s3.notice
+		NoticeDTO
+		NoticeDAO
+			getList -> 글 리스트 확인
+			getSelect -> 글 상세보기
+			setInsert -> 글 작성
+			setUpdate -> 글 수정
+			setDelete -> 글 삭제
+			setHitUpdate -> 조회수 1증가
+			
+		NoticeService
+			getList -> 글 리스트 확인
+			getSelect -> 글 상세보기
+			setInsert -> 글 작성
+			setUpdate -> 글 수정
+			setDelete -> 글 삭제
+		
+		NoticeController
+			getList -> 글 리스트 확인
+			getSelect -> 글 상세보기
+			setInsert -> 글 작성
+			setUpdate -> 글 수정
+			setDelete -> 글 삭제
+			
+	Front-end
+		/WEB-INF/views/notice/
+		
+		글 리스트
+		/notice/noticeList => noticeList.jsp (GET)
+		글 상세보기
+		/notice/noticeSelect => noeiceSelect.jsp (GET)
+		글 작성
+		/notice/noticeInsert => noticeInsert.jsp (GET), 글 리스트(POST)
+		글 수정
+		/notice/noticeUpdate => noticeUpdate.jsp (GET), 글 리스트(POST)
+		글 삭제
+		/notice/noticeDelete => 글리스트로 이동(GET)
+		
+ -->
+
+
+
+
   </body>
 </html>
