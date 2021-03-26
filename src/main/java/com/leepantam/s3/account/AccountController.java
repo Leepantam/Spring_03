@@ -32,6 +32,6 @@ public class AccountController {
 		aDto.setUser_info(((MemberDTO)session.getAttribute("member")).getId());
 		aDto.setBook_info(bDto.getAccount_number());
 		aServ.setInsert(aDto);
-		return "redirect:../";
+		return "redirect:./accountList";
 	}
 }

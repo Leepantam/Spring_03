@@ -1,6 +1,9 @@
 package com.leepantam.s3.account;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +17,7 @@ public class AccountService {
 	
 	@Autowired
 	private AccountDAO aDao;
-	private int num=100000;
+//	private int num=100000;
 	
 	public List<AccountDTO> getList(AccountDTO aDto) throws Exception {
 
@@ -22,13 +25,39 @@ public class AccountService {
 	}
 	
 	public int setInsert(AccountDTO aDto)throws Exception{
-		num=++num;
-		StringBuffer sb = new StringBuffer();
-		sb.append("111-");
-		sb.append(num);
-		sb.append("-22-");
-		sb.append("333");
-		aDto.setAccount(sb.toString());
+		
+		Calendar ca = Calendar.getInstance();
+//		long time = ca.getTimeInMillis();
+//		System.out.println(time);
+//		
+//		String t = time+"";
+//		t = String.valueOf(time);
+//		
+//		String result = t.substring(0,4)+"-";
+//		result = result+t.substring(4,8)+"-";
+//		result = result+t.substring(8);
+//		
+//		System.out.println(result);
+		
+		//SimpleDateFormat
+		SimpleDateFormat sd = new SimpleDateFormat("yyyyMMdd-HHmmss-S");
+		String r = sd.format(ca.getTime());
+		aDto.setAccount(r);
+//		
+//		String name = UUID.randomUUID().toString();
+//		System.out.println(name);
+		
+		// 내가 한거
+//		num=++num;
+//		StringBuffer sb = new StringBuffer();
+//		sb.append("111-");
+//		sb.append(num);
+//		sb.append("-22-");
+//		sb.append("333");
+//		aDto.setAccount(sb.toString());
+		
+		
 		return aDao.setInsert(aDto);
+//		return 0;
 	}
 }
