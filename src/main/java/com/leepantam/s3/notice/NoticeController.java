@@ -22,15 +22,16 @@ public class NoticeController {
 	private NoticeService nServ;
 	
 	@RequestMapping(value="noticeList")
-	public void getList(Model model) throws Exception {
+	public void getList(HttpSession session) throws Exception {
 		List<NoticeDTO> array = nServ.getList();
-		model.addAttribute("noticeList", array);
+		session.setAttribute("noticeList", array);
 	}
 	
 	@RequestMapping(value="noticeSelect")
 	public void getSelect(NoticeDTO nDto,Model model) throws Exception{
 		nDto = nServ.getSelect(nDto);
 		model.addAttribute("nDto", nDto);
+		
 	}
 	
 	@RequestMapping(value="noticeDelete")
@@ -57,7 +58,6 @@ public class NoticeController {
 	public void setUpdate(NoticeDTO nDto,Model model) throws Exception{
 		nDto = nServ.getSelect(nDto);
 		model.addAttribute("nDto", nDto);
-		
 	}
 	@RequestMapping(value="noticeUpdate",method = RequestMethod.POST)
 	public String setUpdate(NoticeDTO nDto) throws Exception{

@@ -19,4 +19,7 @@
     <update id="setUpdate" parameterType="NoticeDTO">
     	update notice set title=#{title}, writer=#{writer}, regdate=sysdate, hit=#{hit} ,contents=#{contents} where num=#{num}
     </update>
+    <update id="setHitUpdate" parameterType="NoticeDTO">
+    	update notice set hit=(select hit from notice where num=#{num})+1 where num=#{num}
+    </update>
     </mapper>

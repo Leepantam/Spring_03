@@ -39,17 +39,5 @@
 </form>
 </div>
 
-
-
-<h1>memberJoin</h1>
-<form action="./memberJoin" method="post">
-	ID:<input type="text" name="id"><br>
-	PW:<input type="text" name="pw"><br>
-	NAME:<input type="text" name="name"><br>
-	PHONE:<input type="text" name="phone"><br>
-	EMAIL:<input type="text" name="email"><br>
-	<button> JOIN </button>
-</form>
-
 </body>
 </html>

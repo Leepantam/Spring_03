@@ -18,10 +18,7 @@ public class NoticeDAO {
 	}
 	
 	public NoticeDTO getSelect(NoticeDTO nDto) throws Exception{
-		nDto=sqlSession.selectOne(NAMESPACE+".getSelect", nDto);
-		nDto.setHit(nDto.getHit()+1);
-				
-		return nDto;
+		return sqlSession.selectOne(NAMESPACE+".getSelect", nDto);
 	}
 	
 	public int setDelete(NoticeDTO nDto) throws Exception{
@@ -33,7 +30,12 @@ public class NoticeDAO {
 	}
 	
 	public int setUpdate(NoticeDTO nDto) throws Exception{
+		nDto.setHit(nDto.getHit()-1);
+		sqlSession.update(NAMESPACE+".setUpdate", nDto);
 		return sqlSession.update(NAMESPACE+".setUpdate", nDto);
+	}
+	public int setHitUpdate(NoticeDTO nDto) throws Exception{
+		return sqlSession.update(NAMESPACE+".setHitUpdate", nDto);
 	}
 
 }

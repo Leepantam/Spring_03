@@ -20,7 +20,7 @@
 			<a href="./bankbookUpdate?account_number=${dto.account_number}">Update</a>
 		</c:if>
 		<c:if test="${member.id ne 'admin'}">
-			<a href="../account/accountInsert?account_number=${dto.account_number}"> 가입 </a>
+			<a href="../account/accountInsert?account_number=${dto.account_number}" type="button" class="btn btn-outline-primary"> 가입 </a>
 		</c:if>
 	</c:if>
 	<%-- 

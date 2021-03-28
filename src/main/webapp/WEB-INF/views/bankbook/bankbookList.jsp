@@ -35,7 +35,9 @@
 		</c:forEach>
 	</tbody>
 </table>
-<a href="./bankbookWrite">Write</a>
+<c:if test="${not empty member and member.id eq 'admin'}">
+<a href="./bankbookWrite" type="button" class="btn btn-outline-primary">Write</a>
+</c:if>
 </div>
 
 

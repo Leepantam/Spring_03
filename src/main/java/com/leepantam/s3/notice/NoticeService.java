@@ -16,6 +16,7 @@ public class NoticeService {
 	}
 	
 	public NoticeDTO getSelect(NoticeDTO nDto) throws Exception{
+		nDao.setHitUpdate(nDto);
 		return nDao.getSelect(nDto);
 	}
 	
