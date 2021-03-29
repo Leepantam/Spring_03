@@ -29,4 +29,7 @@
 		update notice set hit=(select hit from notice where num=#{num})+1 where
 		num=#{num}
 	</update>
+	<select id="getTotalCount" resultType="Long">
+		select count(num) totalCount from notice
+	</select>
 </mapper>

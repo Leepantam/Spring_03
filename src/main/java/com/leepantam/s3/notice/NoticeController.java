@@ -29,9 +29,7 @@ public class NoticeController {
 	@RequestMapping(value="noticeList")
 	public void getList(HttpSession session,Pager pager) throws Exception {
 		System.out.println(pager.getCurPage());
-		System.out.println("before"+pager.getTotalPage());
 		List<NoticeDTO> array = nServ.getList(pager);
-		System.out.println("after"+pager.getTotalPage());
 		session.setAttribute("noticeList", array);
 		session.setAttribute("pager", pager);
 	}

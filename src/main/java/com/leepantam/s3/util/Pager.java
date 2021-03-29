@@ -5,7 +5,9 @@ public class Pager {
 	private long curPage;
 	private long startRow;
 	private long lastRow;
-	private long totalPage;
+	private long startNum;
+	private long lastNum;
+	
 	
 	
 
@@ -13,12 +15,19 @@ public class Pager {
 	
 	
 	
-	public long getTotalPage() {
-		return totalPage;
+	public long getStartNum() {
+		return startNum;
 	}
-	public void setTotalPage(long totalPage) {
-		this.totalPage = totalPage;
+	public void setStartNum(long startNum) {
+		this.startNum = startNum;
 	}
+	public long getLastNum() {
+		return lastNum;
+	}
+	public void setLastNum(long lastNum) {
+		this.lastNum = lastNum;
+	}
+	
 	public long getCurPage() {
 		if(this.curPage<1) {
 			this.curPage=1;
