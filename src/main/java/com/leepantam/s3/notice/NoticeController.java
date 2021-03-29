@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.leepantam.s3.member.MemberDTO;
+import com.leepantam.s3.util.Pager;
 
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -18,13 +20,20 @@ import oracle.jdbc.proxy.annotation.Post;
 @RequestMapping(value="/notice/**")
 public class NoticeController {
 	
+	
 	@Autowired
 	private NoticeService nServ;
 	
+	
+	
 	@RequestMapping(value="noticeList")
-	public void getList(HttpSession session) throws Exception {
-		List<NoticeDTO> array = nServ.getList();
+	public void getList(HttpSession session,Pager pager) throws Exception {
+		System.out.println(pager.getCurPage());
+		System.out.println("before"+pager.getTotalPage());
+		List<NoticeDTO> array = nServ.getList(pager);
+		System.out.println("after"+pager.getTotalPage());
 		session.setAttribute("noticeList", array);
+		session.setAttribute("pager", pager);
 	}
 	
 	@RequestMapping(value="noticeSelect")

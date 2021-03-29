@@ -11,39 +11,45 @@ public class NoticeDAOTest extends MyAbstractTest {
 
 	@Autowired
 	private NoticeDAO nDao;
-	
-//	@Test
+
+	//	@Test
 	public void getSelectTest() throws Exception{
 		NoticeDTO nDto = new NoticeDTO();
 		nDto.setNum(0);
 		nDto = nDao.getSelect(nDto);
-		
+
 		assertNotNull(nDto);
 		System.out.println(nDto.getContents());
 	}
-	
-//	@Test
+
+	//	@Test
 	public void setDeleteTest() throws Exception{
 		NoticeDTO nDto = new NoticeDTO();
 		nDto.setNum(0);
-		
+
 		int result = nDao.setDelete(nDto);
-		
+
 		assertNotEquals(0, result);
 	}
-	
-//	@Test
-	public void setInsert() throws Exception{
-		NoticeDTO nDto = new NoticeDTO();
-		nDto.setTitle("title");
-		nDto.setContents("contents");
-		nDto.setWriter("mustDEL");
-		int result = nDao.setInsert(nDto);
-		
-		assertNotEquals(0, result);
-	}
-	
+
 	@Test
+	public void setInsert() throws Exception{
+		for(int i=0; i<120;i++) {
+
+			NoticeDTO nDto = new NoticeDTO();
+			nDto.setTitle("title"+i);
+			nDto.setContents("contents"+i);
+			nDto.setWriter("mustDEL"+i);
+			int result = nDao.setInsert(nDto);
+			if(i%10==0) {
+				Thread.sleep(500);
+			}
+		}
+
+		//		assertNotEquals(0, result);
+	}
+
+	//	@Test
 	public void setUpdateTest() throws Exception{
 		NoticeDTO nDto = new NoticeDTO();
 		nDto.setNum(1);
@@ -51,9 +57,9 @@ public class NoticeDAOTest extends MyAbstractTest {
 		nDto.setContents("change");
 		nDto.setWriter("mustDEL");
 		nDto.setHit(80);
-		
+
 		int result = nDao.setUpdate(nDto);
-		
+
 		assertNotEquals(0, result);
 	}
 }
