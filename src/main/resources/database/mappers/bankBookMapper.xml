@@ -2,27 +2,43 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
+
 <mapper namespace="com.leepantam.s3.bankbook.BankBookDAO">
 
 	<insert id="setWrite" parameterType="BankBookDTO">
-		insert into bank_book values(bank_seq.nextval, #{account_name}, #{interest_rate}, #{can_make})
+		insert into bank_book
+		values(bank_seq.nextval, #{account_name}, #{interest_rate},
+		#{can_make})
 	</insert>
-	
-	<select id="getSelect" parameterType="BankBookDTO" resultType="BankBookDTO">
-		select * from bank_book where account_number=#{account_number}
+
+	<select id="getSelect" parameterType="BankBookDTO"
+		resultType="BankBookDTO">
+		select * from bank_book where
+		account_number=#{account_number}
 	</select>
-	
-	<select id="getList" resultType="BankBookDTO" >
-		select * from bank_book order by account_number desc
+
+	<select id="getList" resultType="BankBookDTO" parameterType="Pager">
+		select * from
+		(select rownum R, B.* from
+		(select * from bank_book order by account_number asc) B)
+		where R between #{startRow} and #{lastRow}
 	</select>
-	
+
 	<delete id="setDelete" parameterType="BankBookDTO">
-		delete from bank_book where account_number=#{account_number}
+		delete from bank_book where
+		account_number=#{account_number}
 	</delete>
-	
+
 	<update id="setUpdate" parameterType="BankBookDTO">
-		update bank_book set account_name=#{account_name}, interest_rate=#{interest_rate},can_make=#{can_make} where account_number=#{account_number}
+		update bank_book set
+		account_name=#{account_name},
+		interest_rate=#{interest_rate},can_make=#{can_make} where
+		account_number=#{account_number}
 	</update>
+
+	<select id="getTotalBankBook" resultType="Long">
+		select
+		count(account_number) from bank_book
+	</select>
 
 </mapper>
