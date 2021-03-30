@@ -21,30 +21,46 @@ public class BankBookService {
 		long lastRow=(pager.getCurPage()*perPage);
 		
 		//1.totalCount
-		long totalCount=bDao.getTotalBankBook();
+		long totalCount=bDao.getTotalBankBook(pager);
+		
 		//2.totalPage
 		long totalPage = totalCount/perPage;
 		if(totalCount%perPage!=0) {
 			totalPage++;
 		}
-		//3.totlaBlock
+		
+		//3. totlaBlock
 		long totalBlock = totalPage/perBlock;
 		if(totalPage%perBlock!=0) {
 			totalBlock++;
 		}
-		//4.curBlock
-		long curBlock = pager.getCurPage()/5;
-		if(pager.getCurPage()%5!=0) {
+		
+		//4. curBlock
+		long curBlock = pager.getCurPage()/perBlock;
+		if(pager.getCurPage()%perBlock!=0) {
 			curBlock++;
 		}
-		//5.startNum,lastNum
+		
+		//5. startNum,lastNum
 		long startNum=(curBlock*perBlock)-(perBlock-1);
 		long lastNum=curBlock*perBlock;
 		
-		pager.setLastNum(lastNum);
+		//6. lastNum set (when you arrive last block)
+		if(curBlock==totalBlock) {
+			lastNum = totalPage;
+		}
+		//7. pre,next button setting
+		if(curBlock!=1) {
+			pager.setPre(true);
+		}
+		if(curBlock!=totalBlock) {
+			pager.setNext(true);
+		}
+		
+		pager.setStartRow(startRow);
 		pager.setLastRow(lastRow);
 		pager.setStartNum(startNum);
-		pager.setStartRow(startRow);
+		pager.setLastNum(lastNum);
 		
 		return bDao.getList(pager);
 	}

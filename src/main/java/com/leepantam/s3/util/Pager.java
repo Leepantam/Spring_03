@@ -8,6 +8,14 @@ public class Pager {
 	private long startNum;
 	private long lastNum;
 	
+	private boolean pre; //previous 이전 block이 있으면 true 없으면 false
+	private boolean next; //next 다음 block이 있으면 true 없으면 false
+	
+	private String kind; // 검색할 컬럼 명
+	private String search;//검색어
+	
+	
+	
 	
 	
 
@@ -15,6 +23,36 @@ public class Pager {
 	
 	
 	
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	public String getSearch() {
+		if(this.search == null) {
+			this.search="";
+		}
+		return search;
+	}
+	public void setSearch(String search) {
+		if(search==null) {
+			search="";
+		}
+		this.search = search;
+	}
+	public boolean isPre() {
+		return pre;
+	}
+	public void setPre(boolean pre) {
+		this.pre = pre;
+	}
+	public boolean isNext() {
+		return next;
+	}
+	public void setNext(boolean next) {
+		this.next = next;
+	}
 	public long getStartNum() {
 		return startNum;
 	}

@@ -20,7 +20,18 @@
 	<select id="getList" resultType="BankBookDTO" parameterType="Pager">
 		select * from
 		(select rownum R, B.* from
-		(select * from bank_book order by account_number asc) B)
+		(select * from bank_book where
+		
+		<choose>
+			<when test="kind == 'rate'">
+				interest_rate
+			</when>
+			<otherwise>
+				account_name				
+			</otherwise>
+		</choose>
+		
+		like '%' || #{search} || '%' and account_number>0 order by account_number asc) B)
 		where R between #{startRow} and #{lastRow}
 	</select>
 
@@ -36,9 +47,18 @@
 		account_number=#{account_number}
 	</update>
 
-	<select id="getTotalBankBook" resultType="Long">
+	<select id="getTotalBankBook" resultType="Long" parameterType="Pager">
 		select
-		count(account_number) from bank_book
+		count(account_number) from bank_book where <choose>
+			<when test="kind == 'rate'">
+				interest_rate
+			</when>
+			<otherwise>
+				account_name				
+			</otherwise>
+		</choose>
+		
+		like '%' || #{search} || '%' and account_number>0
 	</select>
 
 </mapper>

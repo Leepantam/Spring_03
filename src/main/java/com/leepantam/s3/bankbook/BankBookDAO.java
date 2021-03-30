@@ -54,8 +54,8 @@ public class BankBookDAO {
 		return result;
 	}
 	
-	public long getTotalBankBook() throws Exception{
-		return sqlSession.selectOne(NAME_SPACE+".getTotalBankBook");
+	public long getTotalBankBook(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAME_SPACE+".getTotalBankBook",pager);
 	}
 	
 }

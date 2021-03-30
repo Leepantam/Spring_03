@@ -40,8 +40,8 @@ public class NoticeDAO {
 	public int setHitUpdate(NoticeDTO nDto) throws Exception{
 		return sqlSession.update(NAMESPACE+".setHitUpdate", nDto);
 	}
-	public long getTotalCount() throws Exception{
-		return sqlSession.selectOne(NAMESPACE+".getTotalCount");
+	public long getTotalCount(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+".getTotalCount",pager);
 	}
 
 }
