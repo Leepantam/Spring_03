@@ -11,8 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
-		<c:import url="../template/header.jsp"></c:import>
 
 		<h1>noticeList</h1>
 
@@ -51,15 +51,41 @@
 
 	<div class="container">
 		<ul class="pagination">
-			<li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}">Previous</a></li>
-			
+			<c:if test="${pager.pre}">
+				<li class="page-item"><a class="page-link"
+					href="./noticeList?kind=${pager.kind}&search=${pager.search}&curPage=${pager.startNum-1}">Previous</a></li>
+			</c:if>
+
 			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-				<li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}">${i}</a></li>
+				<li class="page-item"><a class="page-link"
+					href="./noticeList?kind=${pager.kind}&search=${pager.search}&curPage=${i}">${i}</a></li>
 			</c:forEach>
-			
-			<li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}">Next</a></li>
+			<c:if test="${pager.next}">
+				<li class="page-item"><a class="page-link"
+					href="./noticeList?kind=${pager.kind}&search=${pager.search}&curPage=${pager.lastNum+1}">Next</a></li>
+			</c:if>
 		</ul>
+
+		<div class="input-group mt-3 mb-3">
+			<form action="./noticeList" class="form-inline">
+				<div class="input-group-prepend">
+					<select class="form-control" id="sel1" name="kind">
+						<option>Title</option>
+						<option>Contents</option>
+						<option>Writer</option>
+					</select>
+				</div>
+				<input type="text" class="form-control" placeholder="Username" name="search">
+				<div class="input-group-append">
+					<button class="btn btn-success" type="submit">Search</button>
+				</div>
+			</form>
+		</div>
+		
+
 	</div>
+
+
 
 
 

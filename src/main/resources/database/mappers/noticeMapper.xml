@@ -7,7 +7,21 @@
 	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
 		select * from
 		(select rownum R, N.* from
-		(select * from notice order by num desc) N)
+		(select * from notice where 
+		
+		<choose>
+			<when test="kind=='Writer'">
+				writer
+			</when>
+			<when test="kind=='Contents'">
+				contents
+			</when>
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+
+		like '%' || #{search} || '%' and num>0 order by num desc) N)
 		where R between #{startRow} and #{lastRow}
 	</select>
 	<select id="getSelect" parameterType="NoticeDTO"
@@ -29,7 +43,20 @@
 		update notice set hit=(select hit from notice where num=#{num})+1 where
 		num=#{num}
 	</update>
-	<select id="getTotalCount" resultType="Long">
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
 		select count(num) totalCount from notice
+		where 
+		<choose>
+			<when test="kind=='Writer'">
+				writer
+			</when>
+			<when test="kind=='Contents'">
+				contents
+			</when>
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+		like '%' || #{search} || '%' and num>0
 	</select>
 </mapper>
