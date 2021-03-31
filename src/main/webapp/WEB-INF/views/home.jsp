@@ -1,124 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    
-    <c:import url="./template/bootStrap.jsp"></c:import>
-<link type="text/css" rel = "stylesheet" href="./resources/css/test.css">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
 
-    <title>Home!</title>
-  </head>
-  <body>
-  
-  <c:import url="./template/header.jsp">  </c:import>
-  
+<c:import url="./template/bootStrap.jsp"></c:import>
+<link type="text/css" rel="stylesheet" href="./resources/css/test.css">
 
-<div class="container" style="margin-top:30px">
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>About Me</h2>
-      <h5>Photo of me:</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h3>Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <hr class="d-sm-none">
-    </div>
-    <div class="col-sm-8">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg">
-      <img src="./resources/image/kermit.gif" alt="kermit">
-      </div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
-  </div>
-</div>
+<title>Home!</title>
+</head>
+<body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Footer</p>
-</div>
+	<c:import url="./template/header.jsp">
+	</c:import>
 
+	<div>
+		<button id="btn" onclick="go()">click</button>
+		<button onclick="go2()">click2</button>
+	</div>
 
+	<div class="b1" id="c1">
+		<h1 id="t1">Welcome Home Page</h1>
+	</div>
 
-<!-- 
-
-	기능
-		글 리스트 => 누구나 접근 가능
-		상세보기 - 글 리스트에서 제목 클릭 => 누구나 접근 가능
-		글 수정 - 글 상세보기에서 버튼 클릭 => 관리자만 접근 가능(admin)
-		글 삭제 - 글 상세보기에서 버튼 클릭 => 관리자만 접근 가능(admin)
-		글 작성 => 관리자만 접근 가능(admin)
-
-	back-end
-		noticeMapper
-		
-		com.leepantam.s3.notice
-		NoticeDTO
-		NoticeDAO
-			getList -> 글 리스트 확인
-			getSelect -> 글 상세보기
-			setInsert -> 글 작성
-			setUpdate -> 글 수정
-			setDelete -> 글 삭제
-			setHitUpdate -> 조회수 1증가
-			
-		NoticeService
-			getList -> 글 리스트 확인
-			getSelect -> 글 상세보기
-			setInsert -> 글 작성
-			setUpdate -> 글 수정
-			setDelete -> 글 삭제
-		
-		NoticeController
-			getList -> 글 리스트 확인
-			getSelect -> 글 상세보기
-			setInsert -> 글 작성
-			setUpdate -> 글 수정
-			setDelete -> 글 삭제
-			
-	Front-end
-		/WEB-INF/views/notice/
-		
-		글 리스트
-		/notice/noticeList => noticeList.jsp (GET)
-		글 상세보기
-		/notice/noticeSelect => noeiceSelect.jsp (GET)
-		글 작성
-		/notice/noticeInsert => noticeInsert.jsp (GET), 글 리스트(POST)
-		글 수정
-		/notice/noticeUpdate => noticeUpdate.jsp (GET), 글 리스트(POST)
-		글 삭제
-		/notice/noticeDelete => 글리스트로 이동(GET)
-		
- -->
-
-
-<script type="text/javascript" src="./resources/js/test.js"></script>
-  </body>
+	<script type="text/javascript" src="./resources/js/test.js"></script>
+</body>
 </html>
