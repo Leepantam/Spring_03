@@ -17,17 +17,20 @@
 	<thead class="thead-dark">
 		<tr>
 			<th> TITLE </th>
-			<th><input type="text" name="title"></th>
+			<th><input type="text" name="title" id="title"></th>
+			<!-- 비어있으면 안됨 -->
 			<th> WRITER </th>
 			<th><input readonly="readonly" name="writer" value="${member.id}"></th>
 		</tr>
 	</thead>
 		<tr>
 			<td width="10%">CONTENTS</td>
-			<td colspan="3"><textarea rows="30" cols="100" name="contents" style="resize: none;" ></textarea></td>
+			<!-- 비어있으면 안됨 -->
+			<td colspan="3"><textarea rows="30" cols="100" name="contents" style="resize: none;" id="contents"></textarea></td>
 		</tr>
 		<tr>
 			<td><button class="btn btn-outline-primary">submit</button></td>
+			<td><input type="button" value="WRITE" class="btn btn-outline-primary" onclick="insertCheck()"></td>
 		</tr>
 	<tbody>
 	</tbody>
@@ -36,5 +39,6 @@
 
 </form>
 
+<script type="text/javascript" src="../resources/js/insertCheck.js"></script>
 </body>
 </html>

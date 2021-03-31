@@ -80,5 +80,7 @@
 	</div>
 
 <script type="text/javascript" src="../resources/js/memberJoinCheck.js"></script>
+
+
 </body>
 </html>
