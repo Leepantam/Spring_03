@@ -11,7 +11,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <h1>Notice Insert</h1>
-<form action="./noticeInsert" method="post">
+<form action="./noticeInsert" method="post" id="noticeForm">
 
 <table class="table">
 	<thead class="thead-dark">
@@ -30,7 +30,7 @@
 		</tr>
 		<tr>
 			<td><button class="btn btn-outline-primary">submit</button></td>
-			<td><input type="button" value="WRITE" class="btn btn-outline-primary" onclick="insertCheck()"></td>
+			<td><input type="button" value="WRITE" class="btn btn-outline-primary" id="writeBtn"></td>
 		</tr>
 	<tbody>
 	</tbody>
