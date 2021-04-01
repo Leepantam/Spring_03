@@ -37,28 +37,26 @@
 			</div>
 			<div class="form-group">
 				<label for="pw">Password check</label> <input type="password"
-					class="form-control" id="pw2" name="pw">
+					class="form-control" id="pw2" name="pw2">
 					<h4 id="pw2Result" ></h4>
 				<!-- pw 두개가 일치 -->
 			</div>
 			<div class="form-group">
 				<label for="name">NAME</label> <input type="text"
-					class="form-control" id="name" name="name">
+					class="form-control" id="name" name="name" class="etc">
 				<!-- 비어있으면 안됨 -->
 			</div>
 			<div class="form-group">
 				<label for="phone">PHONE</label> <input type="text"
-					class="form-control" id="phone" name="phone">
+					class="form-control" id="phone" name="phone" class="etc">
 				<!-- 비어있으면 안됨 -->
 			</div>
 			<div class="form-group">
 				<label for="email">Email</label> <input type="email"
-					class="form-control" id="email" name="email">
+					class="form-control" id="email" name="email" class="etc">
 				<!-- 비어있으면 안됨 -->
 			</div>
-			<button type="submit" class="btn btn-primary" id="check">Submit</button>
-			<input type="button" class="btn btn-primary" value="join"
-				onclick="mCheck()">
+			
 			<input type="button" class="btn btn-primary" value="event" id="btn">
 		</form>
 	</div>

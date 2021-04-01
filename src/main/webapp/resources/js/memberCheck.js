@@ -1,36 +1,6 @@
 /**
  * 
  */
-function mCheck(){
-	let id = document.getElementById("id");
-	let pw = document.getElementById("pw");
-	let pw2 = document.getElementById("pw2");
-	let name = document.getElementById("name");
-	let phone = document.getElementById("phone");
-	let email = document.getElementById("email");
-	
-	if(id.value.length<6){
-		alert("ID가 짧다");
-	}
-	else if(pw.value.length<8){
-		alert("pw 입력")
-	}
-	else if(pw.value!=pw2.value){
-		alert("비밀번호 확인");
-	}
-	else if(name.value==""){
-		alert("이름 없음?");
-	}
-	else if(phone.value==""){
-		alert("님 폰 없?");
-	}
-	else if(email.value==""){
-		alert("email 없음")
-	}
-	else{
-		alert("ok")
-	}
-}
 
 let id = document.getElementById("id");
 let idResult = document.getElementById("idResult");
@@ -38,10 +8,18 @@ let name = document.getElementById("name");
 let phone = document.getElementById("phone");
 let email = document.getElementById("email");
 
+let idCheckResult = false; // id check 결과
+let pwCheckResult = false; // pw check 결과
+let pwEqualResult = false; // pw 확인 결과
+let etcResult = true;
+let etc = document.getElementsByClassName("etc");
+
+
 id.addEventListener("blur",function(){
 	if(id.value.length>5){
 		idResult.innerText="6자 이상";
 		idResult.setAttribute("class","r2");
+		idCheckResult = true;
 	}else{
 		idResult.innerText="6자 미만";
 		idResult.setAttribute("class","r1");
@@ -56,6 +34,7 @@ pw.addEventListener("blur",function(){
 	if(pw.value.length>7){
 		pwResult.innerText="8자 이상";
 		pwResult.setAttribute("class","r2");
+		pwCheckResult = true;
 	}else{
 		pwResult.innerText="8자 미만";
 		pwResult.setAttribute("class","r1");
@@ -65,8 +44,12 @@ pw.addEventListener("blur",function(){
 pw2.addEventListener("blur",function(){
 	if(pw.value!=pw2.value){
 		pw2.value="";
+	}else{
+		pwEqualResult =true;
 	}
-})
+	
+});
+
 
 pw.addEventListener("change", function(){
 	if(pw.value!=pw2.value){
@@ -75,36 +58,57 @@ pw.addEventListener("change", function(){
 })
 
 let btn = document.getElementById("btn");
+
+/*
+//강의
+*/
+btn.addEventListener("click", function(){
+	for(let e of etc){
+		if(e.value==""){
+			etcResult=false;
+			break;
+		}
+	}
+	alert("1"+idCheckResult);
+	alert("2"+pwCheckResult);
+	alert("3"+pwEqualResult);
+	alert("4"+etcResult);
+	if(idCheckResult && pwCheckResult && pwEqualResult && etcResult){
+		alert("ok");
+		//frm.submit();
+	}
+	
+});
+
+
+/*
+직접
 btn.addEventListener("click",function(){
 	let frm = document.getElementById("frm");
 	if(id.value.length<6){
-		alert("ID가 짧다");
+		alert("ID는 6자 이상이어야 합니다.");
 	}
 	else if(pw.value.length<8){
-		alert("pw 입력")
+		alert("password는 8자 이상이어야 합니다.")
 	}
 	else if(pw.value!=pw2.value){
-		alert("비밀번호 확인");
+		alert("비밀번호가 일치하지 않습니다.");
 	}
 	else if(name.value==""){
-		alert("이름 없음?");
+		alert("이름을 입력해 주세요.");
 	}
 	else if(phone.value==""){
-		alert("님 폰 없?");
+		alert("전화번호 입력해주세요.");
 	}
 	else if(email.value==""){
-		alert("email 없음")
+		alert("email 입력해주세요.");
 	}
 	else{
 		frm.submit();
 	}
 })
 
-let check = document.getElementById("check");
-check.addEventListener("click", function(){
-	alert("test");
-	return false;
-})
+*/
 
 
 
