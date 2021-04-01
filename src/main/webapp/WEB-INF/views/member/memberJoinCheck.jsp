@@ -16,7 +16,7 @@
 		
 		<div class="form-check">
 			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input" id="all" value=""  onclick="allCheck()">전체동의
+				class="form-check-input" id="all" value="">전체동의
 			</label>
 		</div>
 		<br>
@@ -24,7 +24,7 @@
 
 		<div class="form-check">
 			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input check" value="" onclick="check1()">동의
+				class="form-check-input check" value="" >동의
 			</label>
 		</div>
 
@@ -37,7 +37,7 @@
 		
 		<div class="form-check">
 			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input check" value="" onclick="check2()">동의
+				class="form-check-input check" value="">동의
 			</label>
 		</div>
 
@@ -50,7 +50,7 @@
 		
 		<div class="form-check">
 			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input check" value="" onclick="check3()">동의
+				class="form-check-input check" value="">동의
 			</label>
 		</div>
 
@@ -63,7 +63,7 @@
 		
 		<div class="form-check">
 			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input check" value="" onclick="check4()">동의
+				class="form-check-input check" value="">동의
 			</label>
 		</div>
 

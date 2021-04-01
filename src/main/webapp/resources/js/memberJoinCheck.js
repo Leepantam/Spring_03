@@ -1,13 +1,12 @@
 /**
  * 
- */
 function check(){
 	let all = document.getElementById("all");
 	let ch = document.getElementsByClassName("check");
 	let i = 0;
 	for(i;i<ch.length;i++){
 		if(!ch[i].checked){
-all.checked=false;
+			all.checked=false;
 			break;
 		} 
 	}
@@ -15,92 +14,28 @@ all.checked=false;
 		all.checked=true;
 	}
 }
+ */
 
+let all = document.getElementById("all");
+let ch = document.getElementsByClassName("check");
 
-
-
-
-
-
-
-
-
-
-/*
-function allCheck(){
-	let all = document.getElementById("all");
-	let ch = document.getElementsByClassName("check");
+function aCheck(){
+	let check=true;
 	for(let c of ch){
-		c.checked = all.checked;
-	}
-}
-
-function check1(){
-	let all = document.getElementById("all");
-	let ch = document.getElementsByClassName("check");
-	let i = 0;
-	for(i;i<ch.length;i++){
-		if(ch[i].checked){
-
-		} else{
-			all.checked=false;
+		if(!c.checked){
+			check=false;
 			break;
-		}
+		} 
 	}
-	if(i==ch.length){
-		all.checked=true;
-	}
+	all.checked=check;
 }
 
-function check2(){
-	let all = document.getElementById("all");
-	let ch = document.getElementsByClassName("check");
-	let i = 0;
-	for(i;i<ch.length;i++){
-		if(ch[i].checked){
-
-		} else{
-			all.checked=false;
-			break;
-		}
-	}
-	if(i==ch.length){
-		all.checked=true;
-	}
+all.addEventListener("click", function(){
+for(let c of ch){
+	c.checked=all.checked;
 }
+})
 
-function check3(){
-	let all = document.getElementById("all");
-	let ch = document.getElementsByClassName("check");
-	let i = 0;
-	for(i;i<ch.length;i++){
-		if(ch[i].checked){
-
-		} else{
-			all.checked=false;
-			break;
-		}
-	}
-	if(i==ch.length){
-		all.checked=true;
-	}
+for(let c of ch){
+	c.addEventListener("click",aCheck);
 }
-
-function check4(){
-	let all = document.getElementById("all");
-	let ch = document.getElementsByClassName("check");
-	let i = 0;
-	for(i;i<ch.length;i++){
-		if(ch[i].checked){
-
-		} else{
-			all.checked=false;
-			break;
-		}
-	}
-	if(i==ch.length){
-		all.checked=true;
-	}
-}
-
-*/
