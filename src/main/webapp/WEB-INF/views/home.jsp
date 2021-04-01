@@ -122,6 +122,6 @@
 
 
 	<script type="text/javascript" src="./resources/js/test.js"></script>
-	
+
 </body>
 </html>

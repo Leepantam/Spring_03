@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -8,12 +9,9 @@ function insertCheck(){
 	
 	if(t.value==""){
 		alert("제목은 으디감?");
-	}
-	if(c.value==""){
+	}else if(c.value==""){
 		alert("냉무?");
-	}
-	if(t.value!="" && c.value!=""){
+	}else{
 		alert("ok");
 	}
 }
-

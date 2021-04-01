@@ -6,12 +6,10 @@ function check(){
 	let ch = document.getElementsByClassName("check");
 	let i = 0;
 	for(i;i<ch.length;i++){
-		if(ch[i].checked){
-
-		} else{
-			all.checked=false;
+		if(!ch[i].checked){
+all.checked=false;
 			break;
-		}
+		} 
 	}
 	if(i==ch.length){
 		all.checked=true;
@@ -28,7 +26,7 @@ function check(){
 
 
 
-
+/*
 function allCheck(){
 	let all = document.getElementById("all");
 	let ch = document.getElementsByClassName("check");
@@ -104,3 +102,5 @@ function check4(){
 		all.checked=true;
 	}
 }
+
+*/
