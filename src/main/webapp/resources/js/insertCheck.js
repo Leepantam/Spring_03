@@ -17,9 +17,10 @@ function insertCheck(){
 	}
 }
 let c = document.getElementById("contents");
-	let t = document.getElementById("title");
+let t = document.getElementById("title");
 let noticeForm = document.getElementById("noticeForm");
 let writeBtn = document.getElementById("writeBtn");
+
 writeBtn.addEventListener("click",function(){
 	if(t.value==""){
 		alert("제목은 으디감?");

@@ -16,6 +16,16 @@ function check(){
 }
  */
 
+const btn = document.getElementById("btn");
+btn.addEventListener("click",function(){
+	if(all.checked){
+		location.href = "./memberJoin";
+	}else{
+		alert("약관동의 확인");
+	}
+});
+
+
 let all = document.getElementById("all");
 let ch = document.getElementsByClassName("check");
 

@@ -73,7 +73,7 @@
 		</div>
 		
 		
-		<button onclick="check()" class="btn btn-primary">JOIN</button>
+		<button class="btn btn-primary" id="btn">JOIN</button>
 		
 		
 

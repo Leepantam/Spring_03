@@ -45,7 +45,7 @@ public class NoticeController {
 	public String setDelete(NoticeDTO nDto) throws Exception{
 		int result = nServ.setDelete(nDto);
 		
-		return "redirect:noticeList";
+		return "redirect:./noticeList";
 	}
 	
 	
@@ -55,10 +55,18 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="noticeInsert",method=RequestMethod.POST)
-	public String setInsert(NoticeDTO nDto,HttpSession session) throws Exception{
+	public String setInsert(NoticeDTO nDto,HttpSession session,Model model) throws Exception{
 		nDto.setWriter(((MemberDTO)session.getAttribute("member")).getId());
 		int result = nServ.setInsert(nDto);
-		return "redirect:noticeList";
+		String message = "실패";
+		String path = "./noticeList";
+		if(result>0) {
+			message="성공";
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", path);
+		return "common/commonResult";
 	}
 	
 	@RequestMapping(value="noticeUpdate")
@@ -69,7 +77,7 @@ public class NoticeController {
 	@RequestMapping(value="noticeUpdate",method = RequestMethod.POST)
 	public String setUpdate(NoticeDTO nDto) throws Exception{
 		int result = nServ.setUpdate(nDto);
-		return "redirect:noticeList";
+		return "redirect:./noticeList";
 	}
 	
 	

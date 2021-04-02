@@ -29,8 +29,7 @@
 			<td colspan="3"><textarea rows="30" cols="100" name="contents" style="resize: none;" id="contents"></textarea></td>
 		</tr>
 		<tr>
-			<td><button class="btn btn-outline-primary">submit</button></td>
-			<td><input type="button" value="WRITE" class="btn btn-outline-primary" id="writeBtn"></td>
+			<td><input type="submit" value="WRITE" class="btn btn-outline-primary" id="writeBtn"></td>
 		</tr>
 	<tbody>
 	</tbody>

@@ -52,15 +52,18 @@
 				<!-- 비어있으면 안됨 -->
 			</div>
 			<div class="form-group">
-				<label for="email">Email</label> <input type="email"
+				<label for="email">Email</label> <input type="text"
 					class="form-control" id="email" name="email" class="etc">
 				<!-- 비어있으면 안됨 -->
 			</div>
 			
-			<input type="button" class="btn btn-primary" value="event" id="btn">
+			<input type="submit" class="btn btn-primary" value="event" id="btn">
+
 		</form>
 	</div>
 
-	<script type="text/javascript" src="../resources/js/memberCheck.js"></script>
+	<!--
+	 <script type="text/javascript" src="../resources/js/memberCheck.js"></script>
+	 -->
 </body>
 </html>
