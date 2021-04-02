@@ -10,8 +10,8 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<h1>Notice Insert</h1>
-<form action="./noticeInsert" method="post" id="noticeForm">
+<h1>${board} Insert</h1>
+<form action="./${board}Insert" method="post" id="noticeForm">
 
 <table class="table">
 	<thead class="thead-dark">

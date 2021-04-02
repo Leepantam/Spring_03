@@ -12,7 +12,7 @@
 
 	<c:import url="../template/header.jsp"></c:import>
 
-	<h1>Notice Select</h1>
+	<h1>${parh} Select</h1>
 
 	<table class="table">
 		<thead class="thead-dark">
@@ -26,21 +26,21 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>${nDto.num}</td>
-				<td>${nDto.title}</td>
-				<td>${nDto.writer}</td>
-				<td>${nDto.regdate}</td>
-				<td>${nDto.hit}</td>
+				<td>${dto.num}</td>
+				<td>${dto.title}</td>
+				<td>${dto.writer}</td>
+				<td>${dto.regdate}</td>
+				<td>${dto.hit}</td>
 			</tr>
 			<tr>
 				<td colspan="5" align="center"><textarea readonly="readonly"
-						cols="100" rows="25" style="resize: none;">${nDto.contents}</textarea></td>
+						cols="100" rows="25" style="resize: none;">${dto.contents}</textarea></td>
 			</tr>
 			<tr align="center">
 				<c:if test="${not empty member and member.id eq 'admin'}">
-					<td><a href="./noticeDelete?num=${nDto.num}" type="button"
+					<td><a href="./noticeDelete?num=${dto.num}" type="button"
 						class="btn btn-outline-danger"> DELETE </a></td>
-					<td><a href="./noticeUpdate?num=${nDto.num}" type="button"
+					<td><a href="./noticeUpdate?num=${dto.num}" type="button"
 						class="btn btn-outline-success">UPDATE</a></td>
 				</c:if>
 			</tr>

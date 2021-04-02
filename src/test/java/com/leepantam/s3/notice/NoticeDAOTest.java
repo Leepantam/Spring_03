@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.leepantam.s3.MyAbstractTest;
+import com.leepantam.s3.board.notice.NoticeDAO;
+import com.leepantam.s3.board.notice.NoticeDTO;
 
 public class NoticeDAOTest extends MyAbstractTest {
 

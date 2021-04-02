@@ -5,16 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <c:import url="../template/bootStrap.jsp"></c:import>
-
 <title>Insert title here</title>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	<!--  -->
 	<div class="container">
 
-		<h1>noticeList</h1>
+		<h1>${board }</h1>
 
 		<table class="table">
 			<thead class="thead-dark">
@@ -27,7 +26,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${noticeList}" var="dto">
+				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
 						<td><a href="./noticeSelect?num=${dto.num}">${dto.title}</a></td>
@@ -39,7 +38,7 @@
 
 				<tr>
 					<td><c:if test="${not empty member and member.id eq 'admin'}">
-							<a href="./noticeInsert" type="button"
+							<a href="./${board}Insert" type="button"
 								class="btn btn-outline-primary">WRITE</a>
 						</c:if></td>
 				</tr>
@@ -49,7 +48,8 @@
 		</table>
 	</div>
 
-	<div class="container">
+
+	 <div class="container">
 		<ul class="pagination">
 			<c:if test="${pager.pre}">
 				<li class="page-item"><a class="page-link"
@@ -65,7 +65,6 @@
 					href="./noticeList?kind=${pager.kind}&search=${pager.search}&curPage=${pager.lastNum+1}">Next</a></li>
 			</c:if>
 		</ul>
-
 		<div class="input-group mt-3 mb-3">
 			<form action="./noticeList" class="form-inline">
 				<div class="input-group-prepend">
@@ -75,19 +74,17 @@
 						<option>Writer</option>
 					</select>
 				</div>
-				<input type="text" class="form-control" placeholder="Username" name="search">
+				<input type="text" class="form-control" placeholder="Username"
+					name="search">
 				<div class="input-group-append">
 					<button class="btn btn-success" type="submit">Search</button>
 				</div>
 			</form>
 		</div>
-		
+
+
 
 	</div>
-
-
-
-
 
 </body>
 </html>

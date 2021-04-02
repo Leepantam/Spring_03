@@ -10,25 +10,25 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<h1>Notice Update</h1>
+<h1>${path} Update</h1>
 <form action="./noticeUpdate" method="post">
 <table class="table">
 	<thead class="thead-dark">
 		<tr>
 			<th> TITLE </th>
-			<th><input type="text" name="title" value="${nDto.title}"></th>
+			<th><input type="text" name="title" value="${dto.title}"></th>
 			<th> WRITER </th>
-			<th><input readonly="readonly" name="writer" value="${nDto.writer}"></th>
+			<th><input readonly="readonly" name="writer" value="${dto.writer}"></th>
 		</tr>
 	</thead>
 		<tr>
 			<td>CONTENTS</td>
-			<td colspan="3" ><textarea rows="20" cols="100" name="contents" style="resize: none;" >${nDto.contents}</textarea></td>
+			<td colspan="3" ><textarea rows="20" cols="100" name="contents" style="resize: none;" >${dto.contents}</textarea></td>
 		</tr>
 		<tr>
 			<td>
-				<input hidden="true" name="hit" value="${nDto.hit}">
-				<input hidden="true" name="num" value="${nDto.num}">
+				<input hidden="true" name="hit" value="${dto.hit}">
+				<input hidden="true" name="num" value="${dto.num}">
 				<button class="btn btn-outline-success">submit</button>
 			</td>
 		</tr>

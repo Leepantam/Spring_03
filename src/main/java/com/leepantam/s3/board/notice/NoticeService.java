@@ -1,19 +1,21 @@
-package com.leepantam.s3.notice;
+package com.leepantam.s3.board.notice;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.leepantam.s3.board.BoardDTO;
+import com.leepantam.s3.board.BoardService;
 import com.leepantam.s3.util.Pager;
 
 @Service
-public class NoticeService {
+public class NoticeService implements BoardService {
 
 	@Autowired
 	private NoticeDAO nDao;
 
-	public List<NoticeDTO> getList(Pager pager) throws Exception{
+	public List<BoardDTO> getList(Pager pager) throws Exception{
 		int perPage=10;
 		int perBlock = 5;
 
@@ -75,20 +77,29 @@ public class NoticeService {
 		return nDao.getList(pager);
 	}
 
-	public NoticeDTO getSelect(NoticeDTO nDto) throws Exception{
-		nDao.setHitUpdate(nDto);
-		return nDao.getSelect(nDto);
+	@Override
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
+		nDao.setHitUpdate(boardDTO);
+		return nDao.getSelect(boardDTO);
 	}
 
-	public int setDelete(NoticeDTO nDto) throws Exception{
-		return nDao.setDelete(nDto);
+	@Override
+	public int setInsert(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return nDao.setInsert(boardDTO);
 	}
 
-	public int setInsert(NoticeDTO nDto) throws Exception{
-		return nDao.setInsert(nDto);
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return nDao.setUpdate(boardDTO);
 	}
 
-	public int setUpdate(NoticeDTO nDto) throws Exception{
-		return nDao.setUpdate(nDto);
+	@Override
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return nDao.setDelete(boardDTO);
 	}
+
+	
 }

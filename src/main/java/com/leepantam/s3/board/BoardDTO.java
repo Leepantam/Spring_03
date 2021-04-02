@@ -1,16 +1,14 @@
-package com.leepantam.s3.notice;
+package com.leepantam.s3.board;
 
 import java.sql.Date;
 
-public class NoticeDTO {
+public class BoardDTO {
 	private long num;
 	private String title;
 	private String contents;
 	private String writer;
 	private Date regdate;
 	private long hit;
-	
-	
 	public long getNum() {
 		return num;
 	}
@@ -47,6 +45,7 @@ public class NoticeDTO {
 	public void setHit(long hit) {
 		this.hit = hit;
 	}
+	
 	
 	
 }
