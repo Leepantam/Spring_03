@@ -10,4 +10,5 @@
 	<select id="getSelect" parameterType="BoardDTO" resultType="qnaDTO">
 		select * from qna where num=#{num}
 	</select>
-</mapper>
+	
+</mapper> 
