@@ -24,13 +24,14 @@ public class QnaService implements BoardService{
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		int result = qDao.setHitUpdate(boardDTO);
+		return qDao.getSelect(boardDTO);
 	}
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return qDao.setInsert(boardDTO);
 	}
 
 	@Override

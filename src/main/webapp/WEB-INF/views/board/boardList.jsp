@@ -13,7 +13,7 @@
 	<!--  -->
 	<div class="container">
 
-		<h1>${board }</h1>
+		<h1>${board}</h1>
 
 		<table class="table">
 			<thead class="thead-dark">
@@ -29,7 +29,14 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<td><a href="./noticeSelect?num=${dto.num}">${dto.title}</a></td>
+						<td><a href="./${board}Select?num=${dto.num}">
+						<c:catch>
+						<c:forEach begin="1" end="${dto.depth}">
+						--
+						</c:forEach>
+						</c:catch>
+						${dto.title}
+						</a></td>
 						<td>${dto.writer}</td>
 						<td>${dto.regdate}</td>
 						<td>${dto.hit}</td>
@@ -37,7 +44,12 @@
 				</c:forEach>
 
 				<tr>
-					<td><c:if test="${not empty member and member.id eq 'admin'}">
+					<td><c:if test="${board ne 'notice' and not empty member}">
+						
+							<a href="./${board}Insert" type="button"
+								class="btn btn-outline-primary">WRITE</a>
+						</c:if>
+						<c:if test="${board eq 'notice' and not empty member and member.id eq 'admin'}">
 							<a href="./${board}Insert" type="button"
 								class="btn btn-outline-primary">WRITE</a>
 						</c:if></td>
