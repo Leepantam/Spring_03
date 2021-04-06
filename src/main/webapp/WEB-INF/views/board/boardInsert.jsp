@@ -6,12 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <c:import url="../template/bootStrap.jsp"></c:import>
+<style type="text/css">
+#sample{
+	display: none;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <h1>${board} Insert</h1>
 <form action="./${board}Insert" method="post" id="frm">
+<div class="container">
 
 <table class="table">
 	<thead class="thead-dark">
@@ -28,16 +34,21 @@
 			<!-- 비어있으면 안됨 -->
 			<td colspan="3"><textarea rows="30" cols="100" name="contents" style="resize: none;" id="contents" class="myCheck"></textarea></td>
 		</tr>
-		<tr>
-			<td><input type="button" value="WRITE" class="btn btn-outline-primary" id="btn"></td>
-		</tr>
+
 	<tbody>
 	</tbody>
 </table>
-
+			<input type="button" value="add" class="btn btn-outline-danger" id="add">
+		<div id="files"></div>
+			<input type="button" value="WRITE" class="btn btn-outline-primary" id="btn">
+</div>
 
 </form>
-
+<div id ="sample">
+<div class="form-group">
+      <input type="file" class="form-control-file border" name="file">
+    </div>
+</div>
 <script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 </body>
 </html>

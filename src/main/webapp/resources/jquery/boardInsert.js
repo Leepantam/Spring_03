@@ -23,3 +23,15 @@ $("#btn").click(function(){
 	}
 
 })
+
+	let num=1;
+$("#add").click(function(){
+	if(num>5){
+		alert("파일은 5개까지 가능")
+	}else{		
+	$("#files").append($("#sample").html());
+	num++;
+	}
+	
+	
+})
