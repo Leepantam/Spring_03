@@ -79,7 +79,7 @@
 
 	</div>
 
-<script type="text/javascript" src="../resources/js/memberJoinCheck.js"></script>
+<script type="text/javascript" src="../resources/jquery/memberJoinCheck.js"></script>
 
 
 </body>
