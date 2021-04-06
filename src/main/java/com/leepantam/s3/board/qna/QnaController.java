@@ -57,4 +57,62 @@ public class QnaController {
 		
 		return mv;
 	}
+	
+	@GetMapping(value="qnaReply")
+	public ModelAndView setReply()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("board/boardReply");
+		mv.addObject("board", "qna");
+		return mv;
+	}
+	@PostMapping(value="qnaReply")
+	public ModelAndView setReply(QnaDTO qnaDto)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		qServ.setReply(qnaDto);
+		mv.setViewName("redirect:./qna/qnaList");
+		return mv;
+	}
+	
+	
+	
+	@PostMapping(value="qnaDelete")
+	public ModelAndView setDelete(BoardDTO boardDto) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = qServ.setDelete(boardDto);
+		String message = "실패";
+		String path = "./qnaList";
+		if(result>0) {
+			message = "성공";
+		}
+		mv.addObject("msg", message);
+		mv.addObject("path", path);
+		mv.setViewName("common/commonResult");
+		return mv;
+	}
+	
+	@GetMapping(value="qnaUpdate")
+	public ModelAndView setUpdate(BoardDTO boardDto)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDto = qServ.getSelect(boardDto);
+		mv.addObject("dto", boardDto);
+		mv.setViewName("board/boardUpdate");
+		mv.addObject("board","qna");
+		
+		return mv;
+	}
+	
+	@PostMapping(value="qnaUpdate")
+	public ModelAndView setUpdate(BoardDTO boardDto, ModelAndView mv) throws Exception{
+		int result = qServ.setUpdate(boardDto);
+		
+		if(result>0) {
+			mv.setViewName("redirect:./qnaList");
+		}else {
+			mv.addObject("msg","실패");
+			mv.addObject("path", "./qnaList");
+			mv.setViewName("common/commonResult");
+		}
+		
+		return mv;
+	}
 }

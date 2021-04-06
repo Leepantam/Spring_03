@@ -12,7 +12,7 @@
 
 	<c:import url="../template/header.jsp"></c:import>
 
-	<h1>${parh} Select</h1>
+	<h1>${board}Select</h1>
 
 	<table class="table">
 		<thead class="thead-dark">
@@ -38,21 +38,40 @@
 			</tr>
 			<tr align="center">
 				<c:if test="${not empty member and member.id eq 'admin'}">
-					<td><a href="./noticeDelete?num=${dto.num}" type="button"
-						class="btn btn-outline-danger"> DELETE </a></td>
-					<td><a href="./noticeUpdate?num=${dto.num}" type="button"
+					<td><a href="#" type="button" class="btn btn-outline-danger"
+						id="del"> DELETE </a></td>
+					<td><a href="./${board}Update?num=${dto.num}" type="button"
 						class="btn btn-outline-success">UPDATE</a></td>
+
+				</c:if>
+				<c:if test="${board ne 'notice'}">
+					<td><a href="./${board}Reply?num=${dto.num}" type="button"
+						class="btn btn-outline-success">Reply</a></td>
 				</c:if>
 			</tr>
 		</tbody>
 
 
 	</table>
+<form action="./${board}Delete" id="frm">
+	<input type="hidden" name="num" value="${dto.num}">
+</form>
 
 
 
-
-
+	<script type="text/javascript">
+	let del = document.getElementById("del");
+	let frm = document.getElementById("frm");
+	del.addEventListener("click",function(){
+		let result = confirm("delete?");
+		console.log(result);
+		if(result){
+			frm.setAttribute("method","post");
+			frm.submit();
+			//location.href="./${board}Delete?num=${dto.num}";
+		}
+	})
+</script>
 
 </body>
 </html>

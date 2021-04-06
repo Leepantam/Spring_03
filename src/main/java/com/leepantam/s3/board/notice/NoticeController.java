@@ -31,7 +31,7 @@ public class NoticeController {
 	
 	
 	@RequestMapping(value="noticeList")
-	public ModelAndView getList(HttpSession session,Pager pager) throws Exception {
+	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pager.getCurPage());
 		List<BoardDTO> array = nServ.getList(pager);
@@ -40,8 +40,6 @@ public class NoticeController {
 		mv.setViewName("board/boardList");
 		
 		return mv;
-//		session.setAttribute("noticeList", array);
-//		session.setAttribute("pager", pager);
 	}
 	
 	@RequestMapping(value="noticeSelect")
@@ -49,20 +47,29 @@ public class NoticeController {
 		boardDto = nServ.getSelect(boardDto);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("dto", boardDto);
-		mv.addObject("path", "notice");
+		mv.addObject("board", "notice");
 		mv.setViewName("board/boardSelect");
 		
 		
 		return mv;
 	}
+
 	
-	@RequestMapping(value="noticeDelete")
-	public String setDelete(NoticeDTO nDto) throws Exception{
-		int result = nServ.setDelete(nDto);
-		
-		return "redirect:./noticeList";
+	@PostMapping(value="noticeDelete")
+	public ModelAndView setDelete(BoardDTO boardDto) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = nServ.setDelete(boardDto);
+		String message = "실패";
+		String path = "./noticeList";
+		if(result>0) {
+			message = "성공";
+		}
+		mv.addObject("msg", message);
+		mv.addObject("path", path);
+		mv.setViewName("common/commonResult");
+		return mv;
 	}
-	
+
 	
 	@RequestMapping(value="noticeInsert")
 	public ModelAndView setInsert() throws Exception{
@@ -89,19 +96,27 @@ public class NoticeController {
 	}
 	
 	@GetMapping(value="noticeUpdate")
-	public ModelAndView setUpdate(BoardDTO boardDto,ModelAndView mv) throws Exception{
+	public ModelAndView setUpdate(BoardDTO boardDto) throws Exception{
+		ModelAndView mv = new ModelAndView();
 		boardDto = nServ.getSelect(boardDto);
 		mv.addObject("dto", boardDto);
-		mv.addObject("path", "notice");
+		mv.addObject("board", "notice");
 		mv.setViewName("board/boardUpdate");
 		
 		return mv;
 		
 	}
 	@PostMapping(value="noticeUpdate")
-	public String setUpdate(BoardDTO boardDto) throws Exception{
+	public ModelAndView setUpdate(BoardDTO boardDto,ModelAndView mv) throws Exception{
 		int result = nServ.setUpdate(boardDto);
-		return "redirect:./noticeList";
+		if(result>0) {
+			mv.setViewName("redirect:./noticeList");
+		}else {
+			mv.addObject("msg", "실패");
+			mv.addObject("path", "./noticeList");
+			mv.setViewName("common/commonResult");
+		}
+		return mv;
 	}
 	
 	

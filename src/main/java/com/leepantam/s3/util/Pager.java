@@ -2,6 +2,9 @@ package com.leepantam.s3.util;
 
 public class Pager {
 	
+	private int perPage=10;
+	private int perBlock=5;
+	
 	private long curPage;
 	private long startRow;
 	private long lastRow;
@@ -91,6 +94,52 @@ public class Pager {
 	public void setLastRow(long lastRow) {
 		this.lastRow = lastRow;
 	}
+	
+	public void makeRow() {
+		long startRow = (this.getCurPage()*perPage)-(perPage-1);
+		long lastRow = this.getCurPage()*perPage;
+		
+		this.setStartRow(startRow);
+		this.setLastRow(lastRow);
+	}
+	
+	
+	
+	public void makeNum(long totalCount) {
+		long totalPage = totalCount/perPage;
+		if(totalCount%perPage!=0) {
+			totalPage++;
+		}
+		
+		long totalBlock = totalPage/perBlock;
+		if(totalPage%perBlock!=0) {
+			totalBlock++;
+		}
+		
+		long curBlock=this.getCurPage()/5;
+		if(this.getCurPage()%5!=0) {
+			curBlock++;
+		}
+		
+		long startNum=(curBlock*perBlock)-(perBlock-1);
+		long lastNum=curBlock*perBlock;
+		
+		if(curBlock == totalBlock) {
+			lastNum=totalPage;
+		}
+		
+		if(curBlock != 1) {
+			this.setPre(true);
+		}
+		if(curBlock != totalBlock) {
+			this.setNext(true);
+		}
+		
+		this.setStartNum(startNum);
+		this.setLastNum(lastNum);
+		
+	}
+	
 	
 
 }

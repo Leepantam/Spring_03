@@ -11,7 +11,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <h1>${path} Update</h1>
-<form action="./noticeUpdate" method="post">
+<form action="./${board}Update" method="post">
 <table class="table">
 	<thead class="thead-dark">
 		<tr>
@@ -28,7 +28,7 @@
 		<tr>
 			<td>
 				<input hidden="true" name="hit" value="${dto.hit}">
-				<input hidden="true" name="num" value="${dto.num}">
+				<input hidden="true" name="num" value="${param.num}">
 				<button class="btn btn-outline-success">submit</button>
 			</td>
 		</tr>

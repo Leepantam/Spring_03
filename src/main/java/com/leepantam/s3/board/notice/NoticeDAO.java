@@ -1,6 +1,5 @@
 package com.leepantam.s3.board.notice;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;

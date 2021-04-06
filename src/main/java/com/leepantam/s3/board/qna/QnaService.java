@@ -14,10 +14,41 @@ public class QnaService implements BoardService{
 	
 	@Autowired
 	private QnaDAO qDao;
+	
+	
+	
+	
+	public int setReply(QnaDTO qnaDto) throws Exception{
+		//부모글의 ref,step,depth 조회
+		BoardDTO boardDto = qDao.getSelect(qnaDto);
+		QnaDTO p = (QnaDTO)boardDto;
+		System.out.println(p.getRef());
+		System.out.println(p.getStep());
+		System.out.println(p.getDepth());
+		
+		qnaDto.setRef(p.getRef());
+		qnaDto.setStep(p.getStep()+1);
+		qnaDto.setDepth(p.getDepth()+1);
+		
+		qDao.setReplyUpdate(qnaDto);
+		int result = qDao.setReply(qnaDto);
+		
+		return result;
+		
+	}
 
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
-		// TODO Auto-generated method stub
+		int perPage=10;
+		int perBlock=5;
+		
+		pager.makeRow();
+				
+		long totalCount = qDao.getTotalCount(pager);
+		
+		pager.makeNum(totalCount);
+		
+		
 		return qDao.getList(pager);
 	}
 
@@ -37,13 +68,13 @@ public class QnaService implements BoardService{
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return qDao.setUpdate(boardDTO);
 	}
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return qDao.setDelete(boardDTO);
 	}
 
 	
