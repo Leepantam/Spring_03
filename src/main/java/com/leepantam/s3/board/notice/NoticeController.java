@@ -33,7 +33,6 @@ public class NoticeController {
 	@RequestMapping(value="noticeList")
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(pager.getCurPage());
 		List<BoardDTO> array = nServ.getList(pager);
 		mv.addObject("list", array);
 		mv.addObject("board","notice");

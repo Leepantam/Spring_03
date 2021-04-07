@@ -10,6 +10,20 @@
 <c:import url="./template/bootStrap.jsp"></c:import>
 <link type="text/css" rel="stylesheet" href="./resources/css/test.css">
 
+<style type="text/css">
+	#d1{
+		width : 200px;
+		height : 200px;
+		background-color:red;
+		overflow:hidden;
+	}
+	#d2{
+		width : 50px;
+		height : 50px;
+		background-color:yellow;
+		margin : 75px auto;
+	}
+</style>
 <title>Home!</title>
 </head>
 <body>
@@ -26,10 +40,24 @@
 		<li>a</li>
 	</ol>
 	<select id="mon">
-		
 	</select>
+	
+	
+	<div id="d1">
+		<div id="d2">
+		</div>
+	</div>
 
 	<script type="text/javascript">
+	
+	$("#d1").click(function(){
+		console.log("parent");
+	});
+	$("#d2").click(function(){
+		console.log("child");
+	});
+	
+	
 	$('#btn2').click(function(){
 		for(let i=1;i<13;i++){
 		$("#mon").append('<option>'+i+'</option>');

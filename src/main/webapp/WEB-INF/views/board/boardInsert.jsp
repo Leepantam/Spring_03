@@ -9,7 +9,7 @@
 <style type="text/css">
 #sample{
 	display: none;
-}
+ }
 </style>
 <title>Insert title here</title>
 </head>
@@ -39,16 +39,29 @@
 	</tbody>
 </table>
 			<input type="button" value="add" class="btn btn-outline-danger" id="add">
-		<div id="files"></div>
+			<input type="button" value="delete" class="btn btn-danger" id="del">
+			
+			<div id="files"></div>
 			<input type="button" value="WRITE" class="btn btn-outline-primary" id="btn">
 </div>
 
-</form>
+
 <div id ="sample">
-<div class="form-group">
-      <input type="file" class="form-control-file border" name="file">
-    </div>
+
+<div class="input-group">
+  <div class="custom-file" >
+    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+  </div>
+  <div class="input-group-append delete">
+    <input class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" value="Delete">
+  </div>
 </div>
+
+</div>
+
+
+</form>
 <script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 </body>
 </html>
