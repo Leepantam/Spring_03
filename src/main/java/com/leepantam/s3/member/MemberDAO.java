@@ -36,4 +36,8 @@ public class MemberDAO {
 		return sqlSession.update(NAMESPACE+".memberUpdate", mDto);
 	}
 	
+	public int memberFileInsert(MemberFileDTO mfDto) throws Exception{
+		return sqlSession.insert(NAMESPACE+".memberFileInsert",mfDto);
+	}
+	
 }

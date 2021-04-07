@@ -22,7 +22,7 @@
 
 	<div class="container">
 		<h2>memberJoin</h2>
-		<form action="./memberJoin" method="post" id="frm">
+		<form action="./memberJoin" method="post" id="frm" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label> <input type="text" class="form-control"
 					id="id" name="id">
@@ -54,6 +54,12 @@
 			<div class="form-group">
 				<label for="email">Email</label> <input type="text"
 					class="form-control" id="email" name="email" class="etc">
+				<!-- 비어있으면 안됨 -->
+			</div>
+			
+			<div class="form-group">
+				<label for="avatar">Avatar</label> <input type="file"
+					class="form-control" id="avatar" name="avatar" class="etc">
 				<!-- 비어있으면 안됨 -->
 			</div>
 			

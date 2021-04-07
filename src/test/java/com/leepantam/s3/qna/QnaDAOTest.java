@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class QnaDAOTest {
 
-	@Test
+//	@Tests
 	public void test() {
 		fail("Not yet implemented");
 	}

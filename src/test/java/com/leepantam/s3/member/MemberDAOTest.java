@@ -25,7 +25,7 @@ public class MemberDAOTest extends MyAbstractTest {
 		assertNotEquals(0, result);
 	}
 	
-	@Test
+//	@Test
 	public void memberLoginTest() throws Exception{
 		MemberDTO mDto=new MemberDTO();
 		mDto.setId("user04");
@@ -59,6 +59,21 @@ public class MemberDAOTest extends MyAbstractTest {
 		assertEquals(1, result);
 		
 		
+	}
+	
+	@Test
+	public void memberFileInsert() throws Exception{
+		MemberFileDTO mfDto = new MemberFileDTO();
+		mfDto.setId("delTest");
+		mfDto.setFileName("fileName");
+		mfDto.setOrigineName("origineName");
+		
+		System.out.println(mfDto.getId());
+		System.out.println(mfDto.getFileName());
+		System.out.println(mfDto.getOrigineName());
+		
+		int result = mDAO.memberFileInsert(mfDto);
+		assertNotEquals(0, result);
 	}
 
 }

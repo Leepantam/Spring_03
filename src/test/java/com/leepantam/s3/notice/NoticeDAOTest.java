@@ -18,7 +18,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 	public void getSelectTest() throws Exception{
 		NoticeDTO nDto = new NoticeDTO();
 		nDto.setNum(0);
-		nDto = nDao.getSelect(nDto);
+//		nDto = nDao.getSelect(nDto);
 
 		assertNotNull(nDto);
 		System.out.println(nDto.getContents());
