@@ -16,7 +16,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <h1>${board} Insert</h1>
-<form action="./${board}Insert" method="post" id="frm">
+<form action="./${board}Insert" method="post" id="frm" enctype="multipart/form-data">
 <div class="container">
 
 <table class="table">
@@ -46,11 +46,13 @@
 </div>
 
 
+
+</form>
 <div id ="sample">
 
 <div class="input-group">
   <div class="custom-file" >
-    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" name="files">
     <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
   </div>
   <div class="input-group-append delete">
@@ -59,9 +61,6 @@
 </div>
 
 </div>
-
-
-</form>
 <script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 </body>
 </html>

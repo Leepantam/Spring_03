@@ -8,6 +8,8 @@ public class MemberDTO {
 	// getter, setter
 	// 기본생성자 1개
 	
+	private MemberFileDTO memberFileDTO;
+	
 	private String id;
 	private String pw;
 	private String name;
@@ -15,6 +17,12 @@ public class MemberDTO {
 	private String email;
 	
 	
+	public MemberFileDTO getMemberFileDTO() {
+		return memberFileDTO;
+	}
+	public void setMemberFileDTO(MemberFileDTO memberFileDTO) {
+		this.memberFileDTO = memberFileDTO;
+	}
 	public String getId() {
 		return id;
 	}

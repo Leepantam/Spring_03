@@ -8,17 +8,42 @@
 		select *
 		from
 		(select rownum R, Q.* from
-		(select * from qna order by ref desc,step asc) Q)
+		(select * from qna order by ref
+		desc,step asc) Q)
 		where R between #{startRow} and #{lastRow}
 	</select>
 	<insert id="setInsert" parameterType="BoardDTO">
+		<selectKey keyProperty="num" resultType="java.lang.Long" order="BEFORE">
+			select qna_seq.nextval from dual
+		</selectKey>
 		insert into qna
-		values(qna_seq.nextval,#{title},#{writer},#{contents},sysdate,0,qna_seq.currval,0,0)
+		values(#{num},#{title},#{writer},#{contents},sysdate,0,#{num},0,0)
 	</insert>
 	<select id="getSelect" parameterType="BoardDTO"
-		resultType="QnaDTO">
-		select * from qna where num=#{num}
+		resultMap="selectResult">
+		select *
+		from qna Q left join qnafiles QF
+		on Q.num=QF.num
+		where Q.num=#{num}
 	</select>
+
+	<resultMap type="QnaDTO" id="selectResult">
+		<id property="num" column="num" />
+		<result property="title" column="title" />
+		<result property="writer" column="writer" />
+		<result property="contents" column="contents" />
+		<result property="regdate" column="regdate" />
+		<result property="hit" column="hit" />
+		<result property="ref" column="ref" />
+		<result property="step" column="step" />
+		<result property="depth" column="depth" />
+		<collection property="boardFiles" javaType="java.util.List" ofType="BoardFileDTO">
+			<id property="fileNum" column="fileNum" />
+			<result property="fileName" column="fileName" />
+			<result property="origineName" column="origineName" />
+		</collection>
+	</resultMap>
+
 
 	<update id="setHitUpdate" parameterType="BoardDTO">
 		update qna set hit =
@@ -30,7 +55,7 @@
 	</update>
 	<insert id="setReply" parameterType="QnaDTO">
 		insert into qna
-		values(qna_seq.nextval,#{title},#{writer},#{contents},sysdate,0,#{ref},#{step},#{depth})
+		values(#{num},#{title},#{writer},#{contents},sysdate,0,#{ref},#{step},#{depth})
 	</insert>
 	<delete id="setDelete" parameterType="BoardDTO">
 		delete from qna where
@@ -42,10 +67,11 @@
 		hit=#{hit}
 		,contents=#{contents} where num=#{num}
 	</update>
-	
-	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+
+	<select id="getTotalCount" resultType="Long"
+		parameterType="Pager">
 		select count(num) totalCount from qna
-		where 
+		where
 		<choose>
 			<when test="kind=='Writer'">
 				writer
@@ -59,4 +85,14 @@
 		</choose>
 		like '%' || #{search} || '%' and num>0
 	</select>
+
+
+	<select id="getNum" resultType="java.lang.Long">
+		select qna_seq.nextval from dual
+	</select>
+	<insert id="setFileInsert" parameterType="BoardFileDTO">
+		insert into qnafiles
+		values(fq_seq.nextval,#{num},#{fileName},#{origineName})
+	</insert>
+
 </mapper> 

@@ -24,17 +24,28 @@ public class MemberService {
 	
 	public int memberJoin(MemberDTO mDto, MultipartFile avatar,HttpSession session) throws Exception{
 		
-		fMana.save("member", avatar, session);
-//		return mDao.memberJoin(mDto);
+		String fileName = fMana.save("member", avatar, session);
+		MemberFileDTO mfDto = new MemberFileDTO();
+		mfDto.setId(mDto.getId());
+		mfDto.setOrigineName(avatar.getOriginalFilename());
+		mfDto.setFileName(fileName);
+		int result = mDao.memberJoin(mDto);
+		result = mDao.memberFileInsert(mfDto);
 		
-		return 0;
+		return result;
 	}
 	
 	public MemberDTO memberLogin(MemberDTO mDto) throws Exception{
-		return mDao.memberLogin(mDto);
+		mDto = mDao.memberLogin(mDto);
+//		MemberFileDTO mfDto = mDao.memberLoginFile(mDto);
+//		mDto.setMemberFileDTO(mfDto);
+		return mDto;
 	}
 	
-	public int memberDelete(MemberDTO mDto) throws Exception{
+	public int memberDelete(MemberDTO mDto, HttpSession session) throws Exception{
+		MemberFileDTO mfDto = mDao.getMemberFile(mDto);
+		boolean check = fMana.Delete("member", mfDto.getFileName(), session);
+		
 		return mDao.memberDelete(mDto);
 	}
 	

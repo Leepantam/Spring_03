@@ -19,6 +19,7 @@
 <h3>NAME:${member.name}</h3>
 <h3>PHONE:${member.phone}</h3>
 <h3>EMAIL:${member.email}</h3>
+<h2><img alt="${member.memberFileDTO.origineName}" src="../resources/upload/member/${member.memberFileDTO.fileName}"></h2>
 <a href="./memberUpdate" type="button" class="btn btn-outline-primary">수정</a>
 <a href="./memberDelete" type="button" class="btn btn-outline-danger">탈퇴</a>
 <a href="../account/accountList" type="button" class="btn btn-outline-info">계좌 관리</a>

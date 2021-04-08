@@ -74,7 +74,7 @@ public class MemberController {
 
 	@RequestMapping(value="memberDelete")
 	public String memberDelete(HttpSession session) throws Exception{
-		int result = mServ.memberDelete((MemberDTO)session.getAttribute("member"));
+		int result = mServ.memberDelete((MemberDTO)session.getAttribute("member"),session);
 
 		session.invalidate();
 

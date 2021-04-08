@@ -14,6 +14,7 @@
   		<typeAlias type="com.leepantam.s3.board.qna.QnaDTO" alias="QnaDTO"/>
   		<typeAlias type="com.leepantam.s3.util.Pager" alias="Pager"/>
   		<typeAlias type="com.leepantam.s3.member.MemberFileDTO" alias="MemberFileDTO"/>
+  		<typeAlias type="com.leepantam.s3.board.BoardFileDTO" alias="BoardFileDTO"/>
   		
   		
   		<typeAlias type="java.lang.Long" alias="Long"/>

@@ -36,6 +36,17 @@
 				<td colspan="5" align="center"><textarea readonly="readonly"
 						cols="100" rows="25" style="resize: none;">${dto.contents}</textarea></td>
 			</tr>
+
+			<div>
+			<c:forEach items="${dto.boardFiles}" var="file">
+			<tr>
+			<td colspan="5" align="center">
+				<a href="../resources/upload/${board}/${file.fileName}">${file.origineName}</a>
+			</td>			
+			</tr>
+			</c:forEach>
+			</div>
+
 			<tr align="center">
 				<c:if test="${not empty member and member.id eq 'admin'}">
 					<td><a href="#" type="button" class="btn btn-outline-danger"

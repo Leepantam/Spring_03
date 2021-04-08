@@ -2,6 +2,8 @@ package com.leepantam.s3.board;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.leepantam.s3.util.Pager;
 
 public interface BoardService {
@@ -17,7 +19,7 @@ public interface BoardService {
 
 	//글 작성
 	//제목, 내용
-	public int setInsert(BoardDTO boardDTO) throws Exception;
+	public int setInsert(BoardDTO boardDTO,MultipartFile[] files) throws Exception;
 
 	//글 수정
 	//제목, 내용

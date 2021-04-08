@@ -40,4 +40,12 @@ public class MemberDAO {
 		return sqlSession.insert(NAMESPACE+".memberFileInsert",mfDto);
 	}
 	
+	public MemberFileDTO memberLoginFile(MemberDTO mDto) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+".memberLoginFile", mDto);
+	}
+	
+	public MemberFileDTO getMemberFile(MemberDTO mDto) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+".getMemberFile",mDto);
+	}
+	
 }
