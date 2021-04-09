@@ -49,24 +49,12 @@
 	</div>
 
 	<script type="text/javascript">
-	
-	$("#d1").click(function(){
-		console.log("parent");
-	});
-	$("#d2").click(function(){
-		console.log("child");
-	});
-	
-	
-	$('#btn2').click(function(){
-		for(let i=1;i<13;i++){
-		$("#mon").append('<option>'+i+'</option>');
-		}
-	});
-	$('#btn').click(function(){
-		$("#result").prepend('<li>stop</li>');
-	});
-		
+		$('#btn2').click(function(){
+			$.get("./test?num=3",function(data){
+			console.log(data);
+				$('#d2').html(data);
+			});
+		});
 	</script>
 </body>
 </html>
