@@ -61,7 +61,7 @@ public class MemberDAOTest extends MyAbstractTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void memberFileInsert() throws Exception{
 		MemberFileDTO mfDto = new MemberFileDTO();
 		mfDto.setId("delTest");
@@ -74,6 +74,15 @@ public class MemberDAOTest extends MyAbstractTest {
 		
 		int result = mDAO.memberFileInsert(mfDto);
 		assertNotEquals(0, result);
+	}
+	
+	@Test
+	public void memberIdCheckTest() throws Exception{
+		MemberDTO mDto = new MemberDTO();
+		mDto.setId("user01");
+		
+		mDto = mDAO.memberIdCheck(mDto);
+		System.out.println(mDto);
 	}
 
 }

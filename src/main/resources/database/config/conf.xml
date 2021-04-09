@@ -12,6 +12,7 @@
   		<typeAlias type="com.leepantam.s3.board.notice.NoticeDTO" alias="NoticeDTO"/>
 		<typeAlias type="com.leepantam.s3.board.BoardDTO" alias="BoardDTO"/>
   		<typeAlias type="com.leepantam.s3.board.qna.QnaDTO" alias="QnaDTO"/>
+  		<typeAlias type="com.leepantam.s3.board.comments.CommentsDTO" alias="CommentsDTO"/>
   		<typeAlias type="com.leepantam.s3.util.Pager" alias="Pager"/>
   		<typeAlias type="com.leepantam.s3.member.MemberFileDTO" alias="MemberFileDTO"/>
   		<typeAlias type="com.leepantam.s3.board.BoardFileDTO" alias="BoardFileDTO"/>

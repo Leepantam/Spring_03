@@ -17,8 +17,10 @@ let etc = document.getElementsByClassName("etc");
 
 id.addEventListener("blur",function(){
 	if(id.value.length>5){
-		idResult.innerText="6자 이상";
-		idResult.setAttribute("class","r2");
+		
+		//idResult.innerText="6자 이상";
+		
+		//idResult.setAttribute("class","r2");
 		idCheckResult = true;
 	}else{
 		idResult.innerText="6자 미만";
@@ -79,6 +81,25 @@ btn.addEventListener("click", function(){
 	}
 	
 });
+
+
+
+
+// ID 중복 확인
+// 
+$("#id").blur(function(){
+	let id = $("#id").val();
+	$.get("./memberIdCheck?id="+id,function(result){
+		result = result.trim();
+		let str = "사용가능";
+		if(result=="불가"){
+			str = "사용 불가능";
+		}
+		$("#idCheckResult").text(str);
+	});
+})
+
+
 
 
 /*

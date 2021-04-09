@@ -52,4 +52,10 @@ public class MemberService {
 	public int memberUpdate(MemberDTO mDto) throws Exception{
 		return mDao.memberUpdate(mDto);
 	}
+	
+	
+	
+	public MemberDTO memberIdCheck(MemberDTO mDto)throws Exception{
+		return mDao.memberIdCheck(mDto);
+	}
 }

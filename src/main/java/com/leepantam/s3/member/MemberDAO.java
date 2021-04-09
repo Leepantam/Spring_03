@@ -48,4 +48,10 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+".getMemberFile",mDto);
 	}
 	
+	
+	
+	public MemberDTO memberIdCheck(MemberDTO mDto) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+".memberIdCheck",mDto);
+	}
+	
 }

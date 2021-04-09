@@ -65,4 +65,9 @@
 	<select id="getMemberFile" parameterType="MemberDTO" resultType="MemberFileDTO">
 		select fileName from memberfile where id=#{id}
 	</select>
+	
+	<select id="memberIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
+		select * from users where id=#{id}
+	</select>
+	
 </mapper>
