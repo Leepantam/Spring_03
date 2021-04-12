@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value="/comments/**")
@@ -24,9 +25,25 @@ public class CommentsController {
 	}
 	
 	@PostMapping(value="commentsInsert")
-	public void setInsert(CommentsDTO cDto) throws Exception{
-		System.out.println(cDto.getWriter());
-		System.out.println(cDto.getContents());
+	public ModelAndView setInsert(CommentsDTO cDto) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = cServ.setInsert(cDto);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
+	@PostMapping(value="commentsDelete")
+	public ModelAndView commentsDelete(int[] commentsNum) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("start");
+		int result = cServ.setDelete(commentsNum);
+		System.out.println("cont"+result);
+		System.out.println("finish");
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
 	}
 	
 }

@@ -3,17 +3,23 @@ package com.leepantam.s3.board.comments;
 import java.sql.Date;
 
 public class CommentsDTO {
-	private long commentsnum;
+	private long commentsNum;
 	private long num;
 	private String writer;
 	private String contents;
 	private Date regdate;
-	public long getCommentsnum() {
-		return commentsnum;
+	
+	
+	
+	
+	
+	
+	public long getCommentsNum() {
+		return commentsNum;
 	}
-	public void setCommentsnum(long commentsnum) {
-		this.commentsnum = commentsnum;
-	}	
+	public void setCommentsNum(long commentsNum) {
+		this.commentsNum = commentsNum;
+	}
 	public long getNum() {
 		return num;
 	}

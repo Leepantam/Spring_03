@@ -17,4 +17,11 @@ public class CommentsDAO {
 	public List<CommentsDTO> getList(CommentsDTO cDto)throws Exception{
 		return sqlSession.selectList(NAMESPACE+".getList", cDto);
 	}
+	
+	public int setInsert(CommentsDTO cDto) throws Exception{
+		return sqlSession.insert(NAMESPACE+".setInsert", cDto);
+	}
+	public int setDelete(CommentsDTO cDto) throws Exception{
+		return sqlSession.delete(NAMESPACE+".setDelete", cDto);
+	}
 }
