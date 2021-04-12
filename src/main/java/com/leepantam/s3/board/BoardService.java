@@ -23,7 +23,7 @@ public interface BoardService {
 
 	//글 수정
 	//제목, 내용
-	public int setUpdate(BoardDTO boardDTO) throws Exception;
+	public int setUpdate(BoardDTO boardDTO, MultipartFile[] files) throws Exception;
 
 	//글 삭제
 	public int setDelete(BoardDTO boardDTO) throws Exception;

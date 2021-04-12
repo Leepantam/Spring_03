@@ -27,7 +27,15 @@ public class NoticeService implements BoardService {
 	@Autowired
 	private HttpSession session;
 	
-	
+	public int setFileDelete(BoardFileDTO bfDto) throws Exception{
+		bfDto = nDao.getFileName(bfDto);
+		int result = nDao.setFileDelete(bfDto);
+		if(result>0) {
+			fMana.Delete("notice", bfDto.getFileName(), session);			
+		}
+		
+		return result;
+	}
 
 	public List<BoardDTO> getList(Pager pager) throws Exception{
 		
@@ -64,8 +72,16 @@ public class NoticeService implements BoardService {
 	}
 
 	@Override
-	public int setUpdate(BoardDTO boardDTO) throws Exception {
+	public int setUpdate(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
 		// TODO Auto-generated method stub
+		for(MultipartFile mf : files) {
+			BoardFileDTO bfDto = new BoardFileDTO();
+			String fileName = fMana.save("notice", mf, session);
+			bfDto.setNum(boardDTO.getNum());
+			bfDto.setFileName(fileName);
+			bfDto.setOrigineName(mf.getOriginalFilename());
+			nDao.setFileInsert(bfDto);
+		}
 		return nDao.setUpdate(boardDTO);
 	}
 

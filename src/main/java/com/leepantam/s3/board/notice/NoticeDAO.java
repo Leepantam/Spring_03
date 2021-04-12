@@ -17,6 +17,16 @@ public class NoticeDAO implements BoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.leepantam.s3.board.notice.NoticeDAO";
+	
+	
+	public int setFileDelete(BoardFileDTO bfDto) throws Exception{
+		return sqlSession.delete(NAMESPACE+".setFileDelete", bfDto);
+	}
+	
+	public BoardFileDTO getFileName(BoardFileDTO bfDto) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+".getFileName",bfDto);
+	}
+	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub

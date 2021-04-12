@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.leepantam.s3.board.BoardDTO;
+import com.leepantam.s3.board.BoardFileDTO;
 import com.leepantam.s3.member.MemberDTO;
 import com.leepantam.s3.util.Pager;
 
@@ -28,6 +29,16 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService nServ;
+	
+	
+	@GetMapping(value="fileDelete")
+	public ModelAndView setFileDelete(BoardFileDTO bfDto) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = nServ.setFileDelete(bfDto);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
 	
 	
 	
@@ -107,9 +118,11 @@ public class NoticeController {
 		return mv;
 		
 	}
+	
+	
 	@PostMapping(value="noticeUpdate")
-	public ModelAndView setUpdate(BoardDTO boardDto,ModelAndView mv) throws Exception{
-		int result = nServ.setUpdate(boardDto);
+	public ModelAndView setUpdate(BoardDTO boardDto, MultipartFile [] files,ModelAndView mv) throws Exception{
+		int result = nServ.setUpdate(boardDto, files);
 		if(result>0) {
 			mv.setViewName("redirect:./noticeList");
 		}else {

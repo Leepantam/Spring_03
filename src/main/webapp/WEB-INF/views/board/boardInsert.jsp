@@ -41,7 +41,7 @@
 			<input type="button" value="add" class="btn btn-outline-danger" id="add">
 			<input type="button" value="delete" class="btn btn-danger" id="del">
 			
-			<div id="files"></div>
+			<div id="files" title="0"></div>
 			<input type="button" value="WRITE" class="btn btn-outline-primary" id="btn">
 </div>
 
@@ -62,5 +62,6 @@
 
 </div>
 <script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
+<script type="text/javascript" src="../resources/jquery/fileAdd.js"></script>
 </body>
 </html>
