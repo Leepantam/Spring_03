@@ -33,8 +33,7 @@
 				<td>${dto.hit}</td>
 			</tr>
 			<tr>
-				<td colspan="5" align="center"><textarea readonly="readonly"
-						cols="100" rows="25" style="resize: none;">${dto.contents}</textarea></td>
+				<td colspan="5" align="center">${dto.contents}</td>
 			</tr>
 
 			<div>

@@ -31,6 +31,13 @@ public class NoticeController {
 	private NoticeService nServ;
 	
 	
+	@PostMapping(value="summerFileUpload")
+	public void setSummerFileUpload(MultipartFile file)throws Exception{
+		System.out.println("summerfileUpload");
+		System.out.println(file.getOriginalFilename());
+	}
+	
+	
 	@GetMapping(value="fileDelete")
 	public ModelAndView setFileDelete(BoardFileDTO bfDto) throws Exception{
 		ModelAndView mv = new ModelAndView();

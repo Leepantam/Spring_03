@@ -1,0 +1,42 @@
+select * from notice order by num desc;
+
+drop table notice;
+
+drop table noticefiles;
+
+drop table comments;
+
+create table notice(
+num number constraint notice_num_pk primary key,
+title varchar2(200),
+contents CLOB,
+writer varchar2(200),
+regdate date,
+hit number
+)
+
+create table noticefiles(
+fileNum number constraint nf_fn_pk primary key,
+num number constraint nf_num_fk references notice (num) on delete cascade,
+fileName varchar2(400),
+origineName varchar2(400)
+)
+
+create table comments(
+commentsnum number constraint comments_cn_pk primary key,
+num number constraint comments_num_fk references notice (num) on delete cascade,
+writer varchar2(200),
+contents clob,
+regdate date
+)
+
+
+
+
+
+
+
+delete from noticefiles;
+
+
+commit work;
